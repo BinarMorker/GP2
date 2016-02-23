@@ -7,5 +7,7 @@ window = QDialog()
 ui = Ui_Dialog()
 ui.setupUi(window)
 
+window.accepted.connect(window.show)
+
 window.show()
 sys.exit(app.exec_())
