@@ -1,1 +1,3 @@
-print('hello world')
+from modeles.testcontrolleurbd import *
+
+print("allo")
