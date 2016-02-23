@@ -1,15 +1,15 @@
 import sys
-from controllers.depenses import DepensesControlleur as Controlleur
+from controlleurs.depenses import DepensesControlleur as Controlleur
 
 def menu_principal():
     '''Affiche le menu principal'''
     while True:
         print("Que voulez-vous faire?",
-              "\n    1 - Voir dépenses"
-              "\n    2 - Voir dépense #"
-              "\n    3 - Ajouter dépense"
-              "\n    4 - Modifier dépense"
-              "\n    5 - Supprimer dépense"
+              "\n    1 - Voir dÃ©penses"
+              "\n    2 - Voir dÃ©pense #"
+              "\n    3 - Ajouter dÃ©pense"
+              "\n    4 - Modifier dÃ©pense"
+              "\n    5 - Supprimer dÃ©pense"
               "\n    0 - Quitter")
         options = {'1': lambda: Controlleur.voir_depenses(),
         		   '2': lambda: voir_depense(),
@@ -22,13 +22,26 @@ def menu_principal():
         print("")
 
 def voir_depense():
-	print('À venir')
+    '''Affiche les options relatives aux transactions'''
+    choix = True
+    while choix != '0':
+        print("Quelle est la transaction a effectuer?",
+              "\n    1 - Location"
+              "\n    2 - Retour",
+              "\n    0 - Quitter")
+        options = {'1': lambda: location(),
+                   '2': lambda: retour(),
+                   '0': lambda: False}
+        choix = valider_choix(3)
+        options[choix]()
+        print("")
+    return
 
 def modifier_depense():
-	print('À venir')
+	print('Ã€ venir')
 
 def supprimer_depense():
-	print('À venir')
+	print('Ã€ venir')
 
 def valider_choix(nb_options):
     '''
