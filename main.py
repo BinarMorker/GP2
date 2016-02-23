@@ -5,11 +5,11 @@ def menu_principal():
     '''Affiche le menu principal'''
     while True:
         print("Que voulez-vous faire?",
-              "\n    1 - Voir dÃ©penses"
-              "\n    2 - Voir dÃ©pense #"
-              "\n    3 - Ajouter dÃ©pense"
-              "\n    4 - Modifier dÃ©pense"
-              "\n    5 - Supprimer dÃ©pense"
+              "\n    1 - Voir dépenses"
+              "\n    2 - Voir dépense #"
+              "\n    3 - Ajouter dépense"
+              "\n    4 - Modifier dépense"
+              "\n    5 - Supprimer dépense"
               "\n    0 - Quitter")
         options = {'1': lambda: Controlleur.voir_depenses(),
         		   '2': lambda: voir_depense(),
@@ -22,13 +22,13 @@ def menu_principal():
         print("")
 
 def voir_depense():
-	print('Ã€ venir')
+	print('À venir')
 
 def modifier_depense():
-	print('Ã€ venir')
+	print('À venir')
 
 def supprimer_depense():
-	print('Ã€ venir')
+	print('À venir')
 
 def valider_choix(nb_options):
     '''
