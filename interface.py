@@ -8,7 +8,7 @@ def creerFenetre():
 	
 	#ui.tabWidget.tabBar().hide()
 	
-	ui.boutonCategories.clicked.connect(ui.derp)
+	#ui.boutonCategories.clicked.connect(ui.derp)
 
 	return window
 
