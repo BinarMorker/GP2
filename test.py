@@ -1,14 +1,11 @@
 #!/usr/bin/python3
 
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow
-from ui_test import Ui_MainWindow
+from PyQt5.QtWidgets import QApplication
+import interface as ui
 
 app = QApplication(sys.argv)
-window = QMainWindow()
-ui = Ui_MainWindow()
-ui.setupUi(window)
-
-
-window.show()
+fenetre = ui.creerFenetre()
+fenetre.show()
 sys.exit(app.exec_())
+
