@@ -4,7 +4,7 @@ Created on 2016-02-24
 @author: Steve Lehoux
 '''
 from sqlalchemy import *
-from modeles import Base
+from modeles.base import Base
 
 class Categorie(Base):
     '''
