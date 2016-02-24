@@ -1,19 +1,16 @@
-from modeles.depense import Depense
 from modeles.base import *
+
 from sqlalchemy import create_engine, engine
 from sqlalchemy.orm import relationship, backref, sessionmaker
+from remplisseurs.remplisseur_depenses import remplir_depenses
+from remplisseurs.remplisseur_entites import remplir_entites
+from remplisseurs.remplisseur_categories import remplir_categories
 
 engine = create_engine("sqlite:///sources//basededonnee.db", encoding="utf8", convert_unicode=True)
 Base.metadata.create_all(engine)
-
 session = sessionmaker(bind=engine)
 s = session()
 
-depense = Depense(
-            nom = "Canadian Tire",
-            description = "",
-            montant = "15247.25")
-    
-s.add(depense)
-
-s.commit()
+remplir_entites(s)
+remplir_depenses(s)
+remplir_categories(s)
