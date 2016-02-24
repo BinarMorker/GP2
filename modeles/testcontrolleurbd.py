@@ -1,5 +1,5 @@
 from modeles.depenses import Depense
-from modeles.base import Base
+from modeles.base import *
 from sqlalchemy import create_engine, engine
 from sqlalchemy.orm import relationship, backref, sessionmaker
 
