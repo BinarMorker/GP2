@@ -5,5 +5,10 @@ def creerFenetre():
 	window = QMainWindow()
 	ui = Ui_MainWindow()
 	ui.setupUi(window)
-	ui.tabWidget.tabBar().hide()
+	
+	#ui.tabWidget.tabBar().hide()
+	
+	ui.boutonCategories.clicked.connect(ui.derp)
+
 	return window
+
