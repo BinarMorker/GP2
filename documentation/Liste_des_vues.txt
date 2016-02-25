@@ -1,0 +1,124 @@
+--------------
+Liste des vues
+--------------
+*Le prototype est fait avec Evolu Pencil Project
+
+======================
+Vue À propos (Accueil)
+======================
+    |-> Logo
+    |-> Version
+    |-> Développeur
+    |-> Documentation
+    
+=============
+Vue Paramètre
+=============
+    |-> À définir
+
+============
+Vue Dépenses
+============
+    ======
+    create
+    ======
+    |-> Créer une dépense
+    |-> Distribution
+
+    ====
+    edit
+    ====
+    |-> Modifier une dépense
+    |-> Distribution
+
+    =====
+    index
+    =====
+    |-> Lister toute les dépenses
+
+    ====
+    show
+    ====
+    |-> Montrer une dépense
+
+===========
+Vue Membres
+===========
+    ======
+    create
+    ======
+    |-> Créer un membre
+
+    ====
+    edit
+    ====
+    |-> Modifier un membre
+
+    =====
+    index
+    =====
+    |-> Lister toute les membres
+
+    ====
+    show
+    ====
+    |-> Montrer un membre
+
+==============
+Vue Catégories
+==============
+    ======
+    create
+    ======
+    |-> Créer une catégorie
+
+    ====
+    edit
+    ====
+    |-> Modifier une catégorie
+
+    =====
+    index
+    =====
+    |-> Lister toute les catégories
+
+    ====
+    show
+    ====
+    |-> Montrer une catégorie
+
+==============
+Vue Division
+==============
+    ======
+    create
+    ======
+    |-> Créer une divion
+
+    ====
+    edit
+    ====
+    |-> Modifier une divion
+
+    =====
+    index
+    =====
+    |-> Lister toute les divions
+
+    ====
+    show
+    ====
+    |-> Montrer une divion
+
+=========================
+Vue Message (QMessageBox)
+=========================
+    ======    
+    Erreur
+    ======
+    |-> Popup avec message d'erreur
+    
+    ============
+    Confirmation
+    ============
+    |-> Popup avec message de confirmation
