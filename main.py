@@ -110,10 +110,13 @@ def modifier_depense(controlleur):
     depense_montant = input('Montant de la dépense (0 si aucun changement): ')
     if depense_montant == '0' or not Nombre.is_float(depense_montant):
         depense_montant = None
+    depense_categorie = input('Catégorie de la dépense (0 si aucun changement): ')
+    if depense_categorie == 0:
+        depense_categorie = None
     depense_description = input('Description de la dépense (0 si aucun changement): ')
     if depense_description == '0':
         depense_description = None
-    controlleur.modifier_depense(depense_id, depense_nom, depense_montant, depense_description)
+    controlleur.modifier_depense(depense_id, depense_nom, depense_montant, depense_categorie, depense_description)
     
 def ajouter_depense(controlleur):
     '''
@@ -122,12 +125,15 @@ def ajouter_depense(controlleur):
     '''
     depense_nom = ""
     depense_montant = 0.0
+    depense_categorie = 0
     while not depense_nom or depense_nom.strip() == "":
         depense_nom = input("Nom de la dépense: ")
-    while not depense_montant or depense_montant == 0 or not Nombre.is_float(depense_montant):
+    while not depense_montant or not Nombre.is_float(depense_montant) or float(depense_montant) == 0:
         depense_montant = input('Montant de la dépense: ')
+    while not depense_categorie or depense_categorie == 0:
+        depense_categorie = input('Catégorie de la dépense: ')
     depense_description = input('Description de la dépense (Entrée si aucune): ')
-    controlleur.ajouter_depense(depense_nom, depense_montant, depense_description)
+    controlleur.ajouter_depense(depense_nom, depense_montant, depense_categorie, depense_description)
 
 def supprimer_depense(controlleur):
     '''

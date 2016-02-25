@@ -16,13 +16,13 @@ class Division_Depense(Base):
     
     depense = relationship("Depense", 
                            foreign_keys=[id_depense], 
-                           backref=backref("divisions_depenses", 
+                           backref=backref("divisions", 
                                            uselist=True
                                            )
                            )
     entite = relationship("Entite", 
                           foreign_keys=[id_entite], 
-                          backref=backref("divisions_depenses", 
+                          backref=backref("divisions", 
                                           uselist=True
                                           )
                           )

@@ -13,9 +13,8 @@ Base.metadata.create_all(engine)
 session = sessionmaker(bind=engine)
 s = session()
 
-tester_modeles(s)
 
-#remplir_entites(s)
-#remplir_categories(s)
-#remplir_depenses(s)
-#remplir_divisions_depense(s)
+remplir_entites(s)
+remplir_categories(s)
+remplir_depenses(s)
+remplir_divisions_depense(s)

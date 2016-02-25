@@ -5,6 +5,7 @@
 from modeles.entite import Entite
 from controlleurs.controlleur import Controlleur
 from sqlalchemy.orm.exc import NoResultFound
+from modeles.division_depense import Division_Depense
 
 class EntitesControlleur(Controlleur):
 	'''
@@ -20,7 +21,7 @@ class EntitesControlleur(Controlleur):
 			entites = self.session.query(Entite).all()
 			for entite in entites:
 				print(str(entite.id) + '\n' + entite.nom + '\n-------')
-				for division_depense in entite.division_depenses:
+				for division_depense in entite.divisions:
 					print(str(division_depense.pourcentage) + '\n--')
 		except NoResultFound:
 			print('Entrée introuvable')

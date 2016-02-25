@@ -5,6 +5,7 @@ Created on 2016-02-23
 '''
 from sqlalchemy import *
 from sqlalchemy.orm import relationship, backref
+from modeles.division_depense import Division_Depense
 
 from modeles.base import Base
 
