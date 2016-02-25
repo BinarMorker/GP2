@@ -13,4 +13,4 @@ class Categorie(Base):
     
     __tablename__ = "Categories"
     id = Column(INTEGER, primary_key=True)
-    nom = Column(String)
+    nom = Column(String) 
