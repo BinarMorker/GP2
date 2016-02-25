@@ -23,7 +23,7 @@ def menu_principal():
               "\n    3 - Menu catégories"
               "\n    0 - Quitter")
         options = {'1': lambda: menu_depenses(depensescontrolleur),
-        		   '2': lambda: menu_entites(entitescontrolleur),
+                   '2': lambda: menu_entites(entitescontrolleur),
                    '3': lambda: menu_categories(categoriescontrolleur),
                    '0': lambda: sys.exit(0)}
         choix = valider_choix(len(options))
@@ -79,12 +79,67 @@ def menu_categories(controlleur):
     while choix != '0':
         print("Que voulez-vous faire?",
               "\n    1 - Voir catégories"
+              "\n    2 - Voir catégorie #"
+              "\n    3 - Ajouter catégorie"
+              "\n    4 - Modifier catégorie"
+              "\n    5 - Supprimer catégorie"
               "\n    0 - Retour")
         options = {'1': lambda: controlleur.liste_categories(),
+                   '2': lambda: voir_categorie(controlleur),
+                   '3': lambda: ajouter_categorie(controlleur),
+                   '4': lambda: modifier_categorie(controlleur),
+                   '5': lambda: supprimer_categorie(controlleur),
                    '0': lambda: False}
         choix = valider_choix(len(options))
         options[choix]()
         print("")
+        
+def voir_categorie(controlleur):
+    '''
+    Affiche le formulaire d'affichage d'une catégorie
+    @param controlleur: Le controlleur à appeler
+    '''
+    categorie_id = 0
+    while not categorie_id or categorie_id == 0:
+        categorie_id = input('Id de la catégorie: ')
+    controlleur.voir_categorie(categorie_id)
+    
+def modifier_categorie(controlleur):
+    '''
+    Affiche le formulaire de modification d'une catégorie
+    @param controlleur: Le controlleur à appeler
+    '''
+    categorie_id = 0
+    while not categorie_id or categorie_id == 0:
+        categorie_id = input('Id de la catégorie: ')
+    categorie_nom = input("Nom de la catégorie (0 si aucun changement): ")
+    if categorie_nom == '0':
+        categorie_nom = None
+    #categorie_description = input('Description de la catégorie (0 si aucun changement): ')
+    #if categorie_description == '0':
+    #    categorie_description = None
+    controlleur.modifier_categorie(categorie_id, categorie_nom)
+    
+    
+def ajouter_categorie(controlleur):
+    '''
+    Affiche le formulaire d'ajout d'une catégorie
+    @param controlleur: Le controlleur à appeler
+    '''
+    categorie_nom = ""
+    while not categorie_nom or categorie_nom.strip() == "":
+        categorie_nom = input("Nom de la catégorie: ")
+    controlleur.ajouter_categorie(categorie_nom)
+
+def supprimer_categorie(controlleur):
+    '''
+    Affiche le formulaire de suppression d'une catégorie
+    @param controlleur: Le controlleur à appeler
+    '''
+    categorie_id = 0
+    while not categorie_id or categorie_id == 0:
+        categorie_id = input('Id de la catégorie: ')
+    controlleur.supprimer_categorie(categorie_id)
 
 def voir_depense(controlleur):
     '''
