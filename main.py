@@ -4,27 +4,92 @@
 
 import sys
 from controlleurs.depenses import DepensesControlleur
+from controlleurs.entites import EntitesControlleur
+from controlleurs.categories import CategoriesControlleur
 from outils.nombre import Nombre
 
-def menu_principal(controlleur):
+def menu_principal():
     '''
     Affiche le menu principal
+    '''
+    depensescontrolleur = DepensesControlleur()
+    entitescontrolleur = EntitesControlleur()
+    categoriescontrolleur = CategoriesControlleur()
+    
+    while True:
+        print("Que voulez-vous faire?",
+              "\n    1 - Menu dépenses"
+              "\n    2 - Menu entités"
+              "\n    3 - Menu catégories"
+              "\n    0 - Quitter")
+        options = {'1': lambda: menu_depenses(depensescontrolleur),
+        		   '2': lambda: menu_entites(entitescontrolleur),
+                   '3': lambda: menu_categories(categoriescontrolleur),
+                   '0': lambda: sys.exit(0)}
+        choix = valider_choix(len(options))
+        options[choix]()
+        print("")
+
+def menu_depenses(controlleur):
+    '''
+    Affiche le menu des dépenses
     @param controlleur: Le controlleur à appeler
     '''
-    while True:
+    choix = True
+    while choix != '0':
         print("Que voulez-vous faire?",
               "\n    1 - Voir dépenses"
               "\n    2 - Voir dépense #"
               "\n    3 - Ajouter dépense"
               "\n    4 - Modifier dépense"
               "\n    5 - Supprimer dépense"
-              "\n    0 - Quitter")
+              "\n    0 - Retour")
         options = {'1': lambda: controlleur.liste_depenses(),
-        		   '2': lambda: voir_depense(controlleur),
-        		   '3': lambda: ajouter_depense(controlleur),
-        		   '4': lambda: modifier_depense(controlleur),
-        		   '5': lambda: supprimer_depense(controlleur),
-                   '0': lambda: sys.exit(0)}
+                   '2': lambda: voir_depense(controlleur),
+                   '3': lambda: ajouter_depense(controlleur),
+                   '4': lambda: modifier_depense(controlleur),
+                   '5': lambda: supprimer_depense(controlleur),
+                   '0': lambda: False}
+        choix = valider_choix(len(options))
+        options[choix]()
+        print("")
+
+def menu_entites(controlleur):
+    '''
+    Affiche le menu des entités
+    @param controlleur: Le controlleur à appeler
+    '''
+    choix = True
+    while choix != '0':
+        print("Que voulez-vous faire?",
+		      "\n    1 - Voir entites"
+              "\n    2 - Voir entite #"
+              "\n    3 - Ajouter entite"
+              "\n    4 - Modifier entite"
+              "\n    5 - Supprimer entite"
+              "\n    0 - Retour")
+        options = {'1': lambda: controlleur.liste_entite(),
+                   '2': lambda: voir_entite(controlleur),
+                   '3': lambda: ajouter_entite(controlleur),
+                   '4': lambda: modifier_entite(controlleur),
+                   '5': lambda: supprimer_entite(controlleur),
+                   '0': lambda: False}
+        choix = valider_choix(len(options))
+        options[choix]()
+        print("")
+
+def menu_categories(controlleur):
+    '''
+    Affiche le menu des catégories
+    @param controlleur: Le controlleur à appeler
+    '''
+    choix = True
+    while choix != '0':
+        print("Que voulez-vous faire?",
+              "\n    1 - Voir catégories"
+              "\n    0 - Retour")
+        options = {'1': lambda: controlleur.liste_categories(),
+                   '0': lambda: False}
         choix = valider_choix(len(options))
         options[choix]()
         print("")
@@ -82,6 +147,49 @@ def supprimer_depense(controlleur):
         depense_id = input('Id de la dépense: ')
     controlleur.supprimer_depense(depense_id)
 
+def voir_entite(controlleur):
+    '''
+    Affiche le formulaire d'affichage d'une entité
+    @param controlleur: Le controlleur à appeler
+    '''
+    entite_id = 0
+    while not entite_id or entite_id == 0:
+        entite_id = input('Id de l\'entité: ')
+    controlleur.voir_entite(entite_id)
+
+def modifier_entite(controlleur):
+    '''
+    Affiche le formulaire de modification d'une entité
+    @param controlleur: Le controlleur à appeler
+    '''
+    entite_id = 0
+    while not entite_id or entite_id == 0:
+        entite_id = input('Id de l\'entite: ')
+    entite_nom = input("Nom de l\'entite (0 si aucun changement): ")
+    if entite_nom == '0':
+        entite_nom = None
+    controlleur.modifier_entite(entite_id, entite_nom)
+    
+def ajouter_entite(controlleur):
+    '''
+    Affiche le formulaire d'ajout d'une entité
+    @param controlleur: Le controlleur à appeler
+    '''
+    entite_nom = ""
+    while not entite_nom or entite_nom.strip() == "":
+        entite_nom = input("Nom de l\'entite: ")
+    controlleur.ajouter_entite(entite_nom)
+
+def supprimer_entite(controlleur):
+    '''
+    Affiche le formulaire de suppression d'une entité
+    @param controlleur: Le controlleur à appeler
+    '''
+    entite_id = 0
+    while not entite_id or entite_id == 0:
+        entite_id = input('Id de l\'entite: ')
+    controlleur.supprimer_entite(entite_id)
+	
 def valider_choix(nb_options):
     '''
     Gere les entrees au clavier pour les menus.
@@ -97,6 +205,6 @@ def valider_choix(nb_options):
     return(choix)
 
 if __name__ == '__main__':
-    controlleur = DepensesControlleur()
-    menu_principal(controlleur)
-    
+    menu_principal()
+
+	

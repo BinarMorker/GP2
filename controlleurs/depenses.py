@@ -2,7 +2,7 @@
 @author: Marc-Antoine Renaud et François Allard
 '''
 
-from modeles.depenses import Depense
+from modeles.depense import Depense
 from controlleurs.controlleur import Controlleur
 from sqlalchemy.orm.exc import NoResultFound
 from outils.nombre import Nombre
@@ -22,7 +22,7 @@ class DepensesControlleur(Controlleur):
 	def voir_depense(self, depense_id):
 		'''
 		Affiche une dépense
-		@param depense_id: L'idenfiant de la dépense à afficher
+		@param depense_id: L'identifiant de la dépense à afficher
 		'''
 		try:
 			depense = self.session.query(Depense).filter(Depense.id == depense_id).one()
@@ -34,7 +34,7 @@ class DepensesControlleur(Controlleur):
 		'''
 		Ajoute une dépense
 		@param nom: Le nom de la nouvelle dépense
-		@param montant: Le montant de la nouvelle dépenses
+		@param montant: Le montant de la nouvelle dépense
 		@param description: La description de la nouvelle dépense
 		'''
 		try:
@@ -82,7 +82,7 @@ class DepensesControlleur(Controlleur):
 	def supprimer_depense(self, depense_id):
 		'''
 		Supprime une dépense
-		@param depense_id: L'idenfiant de la dépense à supprimer
+		@param depense_id: L'identifiant de la dépense à supprimer
 		'''
 		try:
 			depense = self.session.query(Depense).filter(Depense.id == depense_id).one()
