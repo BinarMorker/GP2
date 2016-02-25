@@ -9,10 +9,10 @@ class fenetrePrincipale(QMainWindow):
 	def creer(self):
 		self.ui = Ui_MainWindow()
 		self.ui.setupUi(self)
-		self.ui.tabWidget.tabBar().hide()
-		self.ui.boutonCategories.clicked.connect(self.herp)
+		self.ui.onglets.tabBar().hide()
 		self.ui.boutonDepenses.clicked.connect(self.depenses)
-		self.supersignal.connect(self.herp)
+		self.ui.boutonCategories.clicked.connect(self.categories)
+		self.ui.boutonMembres.clicked.connect(self.membres)
 
 	@pyqtSlot()
 	def derp(self):
@@ -20,9 +20,13 @@ class fenetrePrincipale(QMainWindow):
 		self.supersignal.emit()
 
 	@pyqtSlot()
-	def herp(self):
-		print("herp")
-
-	@pyqtSlot()
 	def depenses(self):
 		self.ui.onglets.setCurrentWidget(self.ui.ongletDepenses)
+
+	@pyqtSlot()
+	def categories(self):
+		self.ui.onglets.setCurrentWidget(self.ui.ongletCategories)
+
+	@pyqtSlot()
+	def membres(self):
+		self.ui.onglets.setCurrentWidget(self.ui.ongletMembres)
