@@ -16,12 +16,15 @@ class fenetrePrincipale(QMainWindow):
 		self.ui.boutonAjouterDepense.clicked.connect(self.ajouterDepense)
 		self.ui.boutonEditerDepense.clicked.connect(self.modifierDepense)
 		self.ui.boutonRetirerDepense.clicked.connect(self.supprimerDepense)
+		self.ui.boutonVoirDepense.clicked.connect(self.voirDepense)
 		self.ui.boutonAjouterCategorie.clicked.connect(self.ajouterCategorie)
 		self.ui.boutonEditerCategorie.clicked.connect(self.modifierCategorie)
 		self.ui.boutonRetirerCategorie.clicked.connect(self.supprimerCategorie)
+		self.ui.boutonVoirCategorie.clicked.connect(self.voirCategorie)
 		self.ui.boutonAjouterMembre.clicked.connect(self.ajouterMembre)
 		self.ui.boutonEditerMembre.clicked.connect(self.modifierMembre)
 		self.ui.boutonRetirerMembre.clicked.connect(self.supprimerMembre)
+		self.ui.boutonVoirMembre.clicked.connect(self.voirMembre)
 
 	@pyqtSlot()
 	def derp(self):
@@ -34,11 +37,15 @@ class fenetrePrincipale(QMainWindow):
 
 	@pyqtSlot()
 	def ajouterDepense(self):
-		print("ajouter dépense")
+		self.ui.onglets.setCurrentWidget(self.ui.ajouterDepense)
 
 	@pyqtSlot()
 	def modifierDepense(self):
-		print("modifier dépense")
+		self.ui.onglets.setCurrentWidget(self.ui.editerDepense)
+
+	@pyqtSlot()
+	def voirDepense(self):
+		self.ui.onglets.setCurrentWidget(self.ui.voirDepense)
 
 	@pyqtSlot()
 	def supprimerDepense(self):
@@ -50,15 +57,19 @@ class fenetrePrincipale(QMainWindow):
 
 	@pyqtSlot()
 	def ajouterCategorie(self):
-		print("ajouter catégorie")
+		self.ui.onglets.setCurrentWidget(self.ui.ajouterCategorie)
 
 	@pyqtSlot()
 	def modifierCategorie(self):
-		print("ajouter catégorie")
+		self.ui.onglets.setCurrentWidget(self.ui.editerCategorie)
+
+	@pyqtSlot()
+	def voirCategorie(self):
+		self.ui.onglets.setCurrentWidget(self.ui.voirCategorie)
 
 	@pyqtSlot()
 	def supprimerCategorie(self):
-		print("ajouter catégorie")
+		print("supprimer catégorie")
 
 	@pyqtSlot()
 	def membres(self):
@@ -66,12 +77,16 @@ class fenetrePrincipale(QMainWindow):
 
 	@pyqtSlot()
 	def ajouterMembre(self):
-		print("ajouter membre")
+		self.ui.onglets.setCurrentWidget(self.ui.ajouterMembre)
 
 	@pyqtSlot()
 	def modifierMembre(self):
-		print("ajouter membre")
+		self.ui.onglets.setCurrentWidget(self.ui.editerMembre)
+
+	@pyqtSlot()
+	def voirMembre(self):
+		self.ui.onglets.setCurrentWidget(self.ui.voirMembre)
 
 	@pyqtSlot()
 	def supprimerMembre(self):
-		print("ajouter membre")
+		print("supprimer membre")
