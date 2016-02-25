@@ -17,7 +17,19 @@ class DepensesControlleur(Controlleur):
 		Montre une liste des dépenses
 		@attention: À venir
 		'''
-		print('À venir')
+		try:
+			depenses = self.session.query(Depense).all()
+			for depense in depenses:
+				print(
+					str(depense.id) + '\n' + 
+					depense.nom + '\n' + 
+					str(depense.montant) + '\n' + 
+					depense.categorie.nom + '\n' + 
+					depense.description + '\n-------')
+				for division_depense in depense.divisions_depenses:
+					print(str(division_depense.pourcentage) + '\n--')
+		except NoResultFound:
+			print('Entrée introuvable')
 		
 	def voir_depense(self, depense_id):
 		'''

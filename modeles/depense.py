@@ -7,7 +7,6 @@ from sqlalchemy import *
 from sqlalchemy.orm import relationship, backref
 
 from modeles.base import Base
-from modeles.categorie import Categorie
 
 
 class Depense(Base):
@@ -24,7 +23,7 @@ class Depense(Base):
     
     categorie = relationship("Categorie", 
                            foreign_keys=[id_categorie], 
-                           backref=backref("divisions_depense", 
+                           backref=backref("depenses", 
                                            uselist=True
                                            )
                            )
