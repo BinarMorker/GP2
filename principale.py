@@ -10,8 +10,8 @@ class fenetrePrincipale(QMainWindow):
 		self.ui = Ui_MainWindow()
 		self.ui.setupUi(self)
 		self.ui.tabWidget.tabBar().hide()
-		self.ui.boutonEntites.clicked.connect(self.derp)
 		self.ui.boutonCategories.clicked.connect(self.herp)
+		self.ui.boutonDepenses.clicked.connect(self.depenses)
 		self.supersignal.connect(self.herp)
 
 	@pyqtSlot()
@@ -22,3 +22,7 @@ class fenetrePrincipale(QMainWindow):
 	@pyqtSlot()
 	def herp(self):
 		print("herp")
+
+	@pyqtSlot()
+	def depenses(self):
+		self.ui.onglets.setCurrentWidget(self.ui.ongletDepenses)
