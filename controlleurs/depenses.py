@@ -2,7 +2,7 @@
 @author: Marc-Antoine Renaud et François Allard
 '''
 
-from modeles.depenses import Depense
+from modeles.depense import Depense
 from controlleurs.controlleur import Controlleur
 from sqlalchemy.orm.exc import NoResultFound
 from outils.nombre import Nombre
