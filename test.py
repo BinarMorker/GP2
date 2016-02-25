@@ -2,10 +2,12 @@
 
 import sys
 from PyQt5.QtWidgets import QApplication
-import interface as ui
+import principale as principale
 
 app = QApplication(sys.argv)
-fenetre = ui.creerFenetre()
+fenetre = principale.fenetrePrincipale()
+fenetre.creer()
+
 fenetre.show()
 sys.exit(app.exec_())
 
