@@ -6,7 +6,8 @@ import principale as principale
 
 app = QApplication(sys.argv)
 fenetre = principale.fenetrePrincipale()
+fenetre.creer()
 
-fenetre.window.show()
+fenetre.show()
 sys.exit(app.exec_())
 
