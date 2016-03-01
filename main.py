@@ -62,9 +62,17 @@ def menu_entites(controlleur):
     choix = True
     while choix != '0':
         print("Que voulez-vous faire?",
-              "\n    1 - Voir entitÃ©s"
+              "\n    1 - Voir entités"
+              "\n    2 - Voir entité #"
+              "\n    3 - Ajouter entités"
+              "\n    4 - Modifier entités"
+              "\n    5 - Supprimer entités"
               "\n    0 - Retour")
         options = {'1': lambda: controlleur.liste_entites(),
+                   '2': lambda: voir_entites(controlleur),
+                   '3': lambda: ajouter_entites(controlleur),
+                   '4': lambda: modifier_entites(controlleur),
+                   '5': lambda: supprimer_entites(controlleur),
                    '0': lambda: False}
         choix = valider_choix(len(options))
         options[choix]()
@@ -94,6 +102,52 @@ def menu_categories(controlleur):
         options[choix]()
         print("")
         
+def voir_entites(controlleur):
+    '''
+    Affiche le formulaire d'affichage d'une entité
+    @param controlleur: Le controlleur à appeler
+    '''
+    entite_id = 0
+    while not entite_id or entite_id == 0:
+        entite_id = input("Id de l'entite: ")
+    controlleur.voir_entite(entite_id)    
+
+def ajouter_entites(controlleur):
+    '''
+    Affiche le formulaire d'ajout d'une entité
+    @param controlleur: Le controlleur à appeler
+    '''
+    entite_nom = ""
+    while not entite_nom or entite_nom.strip() == "":
+        entite_nom = input("Nom de l'entite: ")
+    controlleur.ajouter_entite(entite_nom)
+    
+def modifier_entites(controlleur):
+    '''
+    Affiche le formulaire de modification d'une entité
+    @param controlleur: Le controlleur à appeler
+    '''
+    entitee_id = 0
+    while not entitee_id or entitee_id == 0:
+        entitee_id = input("Id de l'entité: ")
+    entite_nom = input("Nom de l'entité (0 si aucun changement): ")
+    if entite_nom == "0":
+        entite_nom = None
+    #categorie_description = input('Description de la catÃ©gorie (0 si aucun changement): ')
+    #if categorie_description == '0':
+    #    categorie_description = None
+    controlleur.modifier_entite(entitee_id, entite_nom)
+    
+def supprimer_entites(controlleur):
+    '''
+    Affiche le formulaire de suppression d'une entité
+    @param controlleur: Le controlleur à appeler
+    '''
+    entitee_id = 0
+    while not entitee_id or entitee_id == 0:
+        entitee_id = input('Id de la entité: ')
+    controlleur.supprimer_entite(entitee_id)
+        
 def voir_categorie(controlleur):
     '''
     Affiche le formulaire d'affichage d'une catÃ©gorie
@@ -115,10 +169,10 @@ def modifier_categorie(controlleur):
     categorie_nom = input("Nom de la catÃ©gorie (0 si aucun changement): ")
     if categorie_nom == '0':
         categorie_nom = None
-    #categorie_description = input('Description de la catÃ©gorie (0 si aucun changement): ')
-    #if categorie_description == '0':
-    #    categorie_description = None
-    controlleur.modifier_categorie(categorie_id, categorie_nom)
+    categorie_description = input('Description de la catÃ©gorie (0 si aucun changement): ')
+    if categorie_description == '0':
+        categorie_description = None
+    controlleur.modifier_categorie(categorie_id, categorie_nom, categorie_description)
     
     
 def ajouter_categorie(controlleur):
@@ -127,9 +181,12 @@ def ajouter_categorie(controlleur):
     @param controlleur: Le controlleur Ã  appeler
     '''
     categorie_nom = ""
+    categorie_description = ""
     while not categorie_nom or categorie_nom.strip() == "":
         categorie_nom = input("Nom de la catÃ©gorie: ")
-    controlleur.ajouter_categorie(categorie_nom)
+    while not categorie_description or categorie_description.strip() == "":
+        categorie_description = input("Description de la catÃ©gorie: ")
+    controlleur.ajouter_categorie(categorie_nom, categorie_description)
 
 def supprimer_categorie(controlleur):
     '''
