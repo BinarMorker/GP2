@@ -8,6 +8,8 @@ class creerCategorie:
 		print("prout")
 	
 	def activer(self):
+		self.fenetre.ui.creerCatChampNom.setText("derp")
+		self.fenetre.ui.creerCatChampDesc.setText("banana")
 		self.fenetre.ui.onglets.setCurrentWidget(self.onglet)
 
 	#@pyqtSlot()
