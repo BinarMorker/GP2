@@ -4,11 +4,11 @@ class creerCategorie:
 
 	def __init__(self, fenetrePrincipale):
 		self.fenetre = fenetrePrincipale
-		self.onglet = self.fenetre.ajouterCategorie
+		self.onglet = self.fenetre.ui.ajouterCategorie
 		print("prout")
 	
 	def activer(self):
-		self.fenetre.onglets.setCurrentWidget(self.onglet)
+		self.fenetre.ui.onglets.setCurrentWidget(self.onglet)
 
 	#@pyqtSlot()
 	#def depenses(self):
