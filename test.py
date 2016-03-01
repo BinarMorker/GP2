@@ -5,7 +5,7 @@ import sys
 sys.path.insert(0, '/views/')
 
 from PyQt5.QtWidgets import QApplication
-import views.principale as principale
+import vues.principale as principale
 
 app = QApplication(sys.argv)
 fenetre = principale.fenetrePrincipale()

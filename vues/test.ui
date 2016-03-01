@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1098</width>
-    <height>427</height>
+    <height>450</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -107,7 +107,7 @@
        <enum>QTabWidget::North</enum>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="ongletAPropos">
        <attribute name="title">
@@ -209,7 +209,7 @@
            <widget class="QPushButton" name="boutonAjouterDepense">
             <property name="icon">
              <iconset>
-              <normaloff>images/list-add.svg</normaloff>images/list-add.svg</iconset>
+              <normaloff>../images/list-add.svg</normaloff>../images/list-add.svg</iconset>
             </property>
            </widget>
           </item>
@@ -220,7 +220,7 @@
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>images/document-edit.svg</normaloff>images/document-edit.svg</iconset>
+              <normaloff>../images/document-edit.svg</normaloff>../images/document-edit.svg</iconset>
             </property>
            </widget>
           </item>
@@ -231,7 +231,7 @@
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>images/visibility.svg</normaloff>images/visibility.svg</iconset>
+              <normaloff>../images/visibility.svg</normaloff>../images/visibility.svg</iconset>
             </property>
            </widget>
           </item>
@@ -239,7 +239,7 @@
            <widget class="QPushButton" name="boutonRetirerDepense">
             <property name="icon">
              <iconset>
-              <normaloff>images/list-remove.svg</normaloff>images/list-remove.svg</iconset>
+              <normaloff>../images/list-remove.svg</normaloff>../images/list-remove.svg</iconset>
             </property>
            </widget>
           </item>
@@ -632,7 +632,7 @@
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>images/list-add.svg</normaloff>images/list-add.svg</iconset>
+              <normaloff>../images/list-add.svg</normaloff>../images/list-add.svg</iconset>
             </property>
            </widget>
           </item>
@@ -643,7 +643,7 @@
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>images/document-edit.svg</normaloff>images/document-edit.svg</iconset>
+              <normaloff>../images/document-edit.svg</normaloff>../images/document-edit.svg</iconset>
             </property>
            </widget>
           </item>
@@ -654,7 +654,7 @@
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>images/visibility.svg</normaloff>images/visibility.svg</iconset>
+              <normaloff>../images/visibility.svg</normaloff>../images/visibility.svg</iconset>
             </property>
            </widget>
           </item>
@@ -665,7 +665,7 @@
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>images/list-remove.svg</normaloff>images/list-remove.svg</iconset>
+              <normaloff>../images/list-remove.svg</normaloff>../images/list-remove.svg</iconset>
             </property>
            </widget>
           </item>
@@ -877,7 +877,7 @@
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>images/list-add.svg</normaloff>images/list-add.svg</iconset>
+              <normaloff>../images/list-add.svg</normaloff>../images/list-add.svg</iconset>
             </property>
            </widget>
           </item>
@@ -888,7 +888,7 @@
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>images/document-edit.svg</normaloff>images/document-edit.svg</iconset>
+              <normaloff>../images/document-edit.svg</normaloff>../images/document-edit.svg</iconset>
             </property>
            </widget>
           </item>
@@ -899,7 +899,7 @@
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>images/visibility.svg</normaloff>images/visibility.svg</iconset>
+              <normaloff>../images/visibility.svg</normaloff>../images/visibility.svg</iconset>
             </property>
            </widget>
           </item>
@@ -910,7 +910,7 @@
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>images/list-remove.svg</normaloff>images/list-remove.svg</iconset>
+              <normaloff>../images/list-remove.svg</normaloff>../images/list-remove.svg</iconset>
             </property>
            </widget>
           </item>
@@ -956,7 +956,7 @@
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QLineEdit" name="lineEdit_8"/>
+           <widget class="QLineEdit" name="creerCatChampNom"/>
           </item>
           <item row="1" column="0">
            <widget class="QLabel" name="label_31">
@@ -966,12 +966,12 @@
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="QTextEdit" name="textEdit_4"/>
+           <widget class="QTextEdit" name="creerCatChampDesc"/>
           </item>
          </layout>
         </item>
         <item>
-         <widget class="QDialogButtonBox" name="buttonBox_7">
+         <widget class="QDialogButtonBox" name="creerCatBoutonsControle">
           <property name="standardButtons">
            <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
           </property>
@@ -1089,7 +1089,7 @@
      <x>0</x>
      <y>0</y>
      <width>1098</width>
-     <height>20</height>
+     <height>27</height>
     </rect>
    </property>
   </widget>
