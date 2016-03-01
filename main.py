@@ -1,5 +1,5 @@
 '''
-@author: Marc-Antoine Renaud et Fran√ßois Allard
+@author: Marc-Antoine Renaud et FranÁois Allard
 '''
 
 import sys
@@ -20,9 +20,7 @@ def menu_principal():
     
     while True:
         print("Que voulez-vous faire?",
-              "\n    1 - Menu d√©penses"
-              "\n    2 - Menu entit√©s"
-              "\n    3 - Menu cat√©gories"
+              "\n    3 - Menu catÈgories"
               "\n    4 - Menu attributions"
               "\n    0 - Quitter")
         options = {'1': lambda: menu_depenses(depensescontrolleur),
@@ -36,17 +34,12 @@ def menu_principal():
 
 def menu_depenses(controlleur):
     '''
-    Affiche le menu des d√©penses
-    @param controlleur: Le controlleur √† appeler
+    @param controlleur: Le controlleur ‡ appeler
     '''
     choix = True
     while choix != '0':
         print("Que voulez-vous faire?",
-              "\n    1 - Voir d√©penses"
-              "\n    2 - Voir d√©pense #"
-              "\n    3 - Ajouter d√©pense"
-              "\n    4 - Modifier d√©pense"
-              "\n    5 - Supprimer d√©pense"
+              "\n    5 - Supprimer dÈpense"
               "\n    0 - Retour")
         options = {'1': lambda: controlleur.liste_depenses(),
                    '2': lambda: voir_depense(controlleur),
@@ -60,15 +53,22 @@ def menu_depenses(controlleur):
 
 def menu_entites(controlleur):
     '''
-    Affiche le menu des entit√©s
-    @param controlleur: Le controlleur √† appeler
+    @param controlleur: Le controlleur ‡ appeler
     '''
     choix = True
     while choix != '0':
         print("Que voulez-vous faire?",
-              "\n    1 - Voir entit√©s"
+              "\n    1 - Voir entitÈs"
+              "\n    2 - Voir entitÈ #"
+              "\n    3 - Ajouter entitÈs"
+              "\n    4 - Modifier entitÈs"
+              "\n    5 - Supprimer entitÈs"
               "\n    0 - Retour")
         options = {'1': lambda: controlleur.liste_entites(),
+                   '2': lambda: voir_entites(controlleur),
+                   '3': lambda: ajouter_entites(controlleur),
+                   '4': lambda: modifier_entites(controlleur),
+                   '5': lambda: supprimer_entites(controlleur),
                    '0': lambda: False}
         choix = valider_choix(len(options))
         options[choix]()
@@ -76,17 +76,12 @@ def menu_entites(controlleur):
 
 def menu_categories(controlleur):
     '''
-    Affiche le menu des cat√©gories
-    @param controlleur: Le controlleur √† appeler
+    @param controlleur: Le controlleur ‡ appeler
     '''
     choix = True
     while choix != '0':
         print("Que voulez-vous faire?",
-              "\n    1 - Voir cat√©gories"
-              "\n    2 - Voir cat√©gorie #"
-              "\n    3 - Ajouter cat√©gorie"
-              "\n    4 - Modifier cat√©gorie"
-              "\n    5 - Supprimer cat√©gorie"
+              "\n    5 - Supprimer catÈgorie"
               "\n    0 - Retour")
         options = {'1': lambda: controlleur.liste_categories(),
                    '2': lambda: voir_categorie(controlleur),
@@ -101,7 +96,7 @@ def menu_categories(controlleur):
 def menu_attributions(controlleur):
     '''
     Affiche le menu des attributions
-    @param controlleur: Le controlleur √† appeler
+    @param controlleur: Le controlleur ‡ appeler
     '''
     choix = True
     while choix != '0':
@@ -126,196 +121,239 @@ def menu_attributions(controlleur):
         options[choix]()
         print("")
         
+def voir_entites(controlleur):
+    '''
+    Affiche le formulaire d'affichage d'une entitÈ
+    @param controlleur: Le controlleur ‡ appeler
+    '''
+    entite_id = 0
+    while not entite_id or entite_id == 0:
+        entite_id = input("Id de l'entite: ")
+    controlleur.voir_entite(entite_id)    
+
+def ajouter_entites(controlleur):
+    '''
+    Affiche le formulaire d'ajout d'une entitÈ
+    @param controlleur: Le controlleur ‡ appeler
+    '''
+    entite_nom = ""
+    while not entite_nom or entite_nom.strip() == "":
+        entite_nom = input("Nom de l'entite: ")
+    controlleur.ajouter_entite(entite_nom)
+    
+def modifier_entites(controlleur):
+    '''
+    Affiche le formulaire de modification d'une entitÈ
+    @param controlleur: Le controlleur ‡ appeler
+    '''
+    entite_id = 0
+    while not entite_id or entite_id == 0:
+        entite_id = input("Id de l'entitÈ: ")
+    entite_nom = input("Nom de l'entitÈ (0 si aucun changement): ")
+    if entite_nom == "0":
+        entite_nom = None
+    controlleur.modifier_entite(entite_id, entite_nom)
+    
+def supprimer_entites(controlleur):
+    '''
+    Affiche le formulaire de suppression d'une entitÈ
+    @param controlleur: Le controlleur ‡ appeler
+    '''
+    entite_id = 0
+    while not entite_id or entite_id == 0:
+        entite_id = input('Id de la entitÈ: ')
+    controlleur.supprimer_entite(entite_id)
+
 def voir_attribution(controlleur):
     '''
-    Affiche le formulaire d'affichage d'une cat√©gorie
-    @param controlleur: Le controlleur √† appeler
+    Affiche le formulaire d'affichage d'une catÈgorie
+    @param controlleur: Le controlleur ‡ appeler
     '''
     depense_id = 0
     entite_id = 0
     while not depense_id or depense_id == 0:
-        depense_id = input('Id de la d√©pense: ')
+        depense_id = input('Id de la dÈpense: ')
     while not entite_id or entite_id == 0:
-        entite_id = input('Id de l\'entit√©: ')
+        entite_id = input('Id de l\'entitÈ: ')
     controlleur.voir_division_depense(depense_id, entite_id)
     
 def liste_attribution_depense(controlleur):
     '''
-    Affiche le formulaire d'affichage d'une cat√©gorie
-    @param controlleur: Le controlleur √† appeler
+    Affiche le formulaire d'affichage d'une catÈgorie
+    @param controlleur: Le controlleur ‡ appeler
     '''
     depense_id = 0
     while not depense_id or depense_id == 0:
-        depense_id = input('Id de la d√©pense: ')
+        depense_id = input('Id de la dÈpense: ')
     controlleur.voir_division_depense(depense_id)
     
 def liste_attribution_entite(controlleur):
     '''
-    Affiche le formulaire d'affichage d'une cat√©gorie
-    @param controlleur: Le controlleur √† appeler
+    Affiche le formulaire d'affichage d'une catÈgorie
+    @param controlleur: Le controlleur ‡ appeler
     '''
     entite_id = 0
     while not entite_id or entite_id == 0:
-        entite_id = input('Id de l\'entit√©: ')
+        entite_id = input('Id de l\'entitÈ: ')
     controlleur.voir_division_depense(entite_id)
     
 def ajouter_attribution(controlleur):
     '''
     Affiche le formulaire d'ajout d'une attribution
-    @param controlleur: Le controlleur √† appeler
+    @param controlleur: Le controlleur ‡ appeler
     '''
     depense_id = 0
     entite_id = 0
     pourcentage = 0
     montant_paye = 0
     while not depense_id or depense_id.strip() == "":
-        depense_id = input("Id de la d√©pense: ")
+        depense_id = input("Id de la dÈpense: ")
     while not entite_id or entite_id.strip() == "":
-        entite_id = input("Id de l\'entit√©: ")
+        entite_id = input("Id de l\'entitÈ: ")
     while not pourcentage or pourcentage.strip() == "":
         pourcentage = input("Pourcentage de l'attribution: ")
     while not montant_paye or montant_paye.strip() == "":
-        montant_paye = input("Montant pay√©: ")
+        montant_paye = input("Montant payÈ: ")
     controlleur.ajouter_division_depense(depense_id, entite_id, pourcentage, montant_paye)
     
 def modifier_attribution(controlleur):
     '''
-    Affiche le formulaire de modification d'une cat√©gorie
-    @param controlleur: Le controlleur √† appeler
+    Affiche le formulaire de modification d'une catÈgorie
+    @param controlleur: Le controlleur ‡ appeler
     '''
     depense_id = 0
     entite_id = 0
     pourcentage = None
     montant_paye = None
     while not depense_id or depense_id == 0:
-        depense_id = input('Id de la d√©pense: ')
+        depense_id = input('Id de la dÈpense: ')
     while not entite_id or entite_id == 0:
-        entite_id = input('Id de l\'entit√©: ')
-    pourcentage = input("Pourcentage de l'attribution (Entr√©e si aucun changement): ")
+        entite_id = input('Id de l\'entitÈ: ')
+    pourcentage = input("Pourcentage de l'attribution (EntrÈe si aucun changement): ")
     if pourcentage == '':
         pourcentage = None
-    montant_paye = input("Montant de l'attribution pay√© (Entr√©e si aucun changement): ")
+    montant_paye = input("Montant de l'attribution payÈ (EntrÈe si aucun changement): ")
     if montant_paye == '':
         montant_paye = None
     controlleur.modifier_division_depense(depense_id, entite_id, pourcentage, montant_paye)
     
 def supprimer_attribution(controlleur):
     '''
-    Affiche le formulaire de suppression d'une cat√©gorie
-    @param controlleur: Le controlleur √† appeler
+    Affiche le formulaire de suppression d'une catÈgorie
+    @param controlleur: Le controlleur ‡ appeler
     '''
     depense_id = 0
     entite_id = 0
     while not depense_id or depense_id == 0:
-        depense_id = input('Id de la d√©pense: ')
+        depense_id = input('Id de la dÈpense: ')
     while not entite_id or entite_id == 0:
-        entite_id = input('Id de l\'entit√©: ')
+        entite_id = input('Id de l\'entitÈ: ')
     controlleur.supprimer_division_depense(depense_id, entite_id)
-
-def modifier_categorie(controlleur):
+        
+def voir_categorie(controlleur):
     '''
-    Affiche le formulaire de modification d'une cat√©gorie
-    @param controlleur: Le controlleur √† appeler
+    Affiche le formulaire d'affichage d'une catÈgorie
+    @param controlleur: Le controlleur ‡ appeler
     '''
     categorie_id = 0
     while not categorie_id or categorie_id == 0:
-        categorie_id = input('Id de la cat√©gorie: ')
-    categorie_nom = input("Nom de la cat√©gorie (0 si aucun changement): ")
+        categorie_id = input('Id de la catÈgorie: ')
+    controlleur.voir_categorie(categorie_id)
+
+def modifier_categorie(controlleur):
+    '''
+    @param controlleur: Le controlleur ‡ appeler
+    '''
+    categorie_id = 0
+    while not categorie_id or categorie_id == 0:
+    categorie_nom = input("Nom de la catÈgorie (0 si aucun changement): ")
     if categorie_nom == '0':
         categorie_nom = None
-    #categorie_description = input('Description de la cat√©gorie (0 si aucun changement): ')
-    #if categorie_description == '0':
-    #    categorie_description = None
     controlleur.modifier_categorie(categorie_id, categorie_nom)
     
     
 def ajouter_categorie(controlleur):
     '''
-    Affiche le formulaire d'ajout d'une cat√©gorie
-    @param controlleur: Le controlleur √† appeler
+    @param controlleur: Le controlleur ‡ appeler
     '''
     categorie_nom = ""
+    categorie_description = ""
     while not categorie_nom or categorie_nom.strip() == "":
-        categorie_nom = input("Nom de la cat√©gorie: ")
     controlleur.ajouter_categorie(categorie_nom)
+    while not categorie_description or categorie_description.strip() == "":
+        categorie_description = input("Description de la cat√©gorie: ")
+    controlleur.ajouter_categorie(categorie_nom, categorie_description)
 
 def supprimer_categorie(controlleur):
     '''
-    Affiche le formulaire de suppression d'une cat√©gorie
-    @param controlleur: Le controlleur √† appeler
+    @param controlleur: Le controlleur ‡ appeler
     '''
     categorie_id = 0
     while not categorie_id or categorie_id == 0:
-        categorie_id = input('Id de la cat√©gorie: ')
+        categorie_id = input('Id de la catÈgorie: ')
     controlleur.supprimer_categorie(categorie_id)
         
 def voir_categorie(controlleur):
     '''
-    Affiche le formulaire d'affichage d'une cat√©gorie
-    @param controlleur: Le controlleur √† appeler
+    Affiche le formulaire d'affichage d'une catÈgorie
+    @param controlleur: Le controlleur ‡ appeler
     '''
     categorie_id = 0
     while not categorie_id or categorie_id == 0:
-        categorie_id = input('Id de la cat√©gorie: ')
+        categorie_id = input('Id de la catÈgorie: ')
     controlleur.voir_categorie(categorie_id)
 
 def voir_depense(controlleur):
     '''
-    Affiche le formulaire d'affichage d'une d√©pense
-    @param controlleur: Le controlleur √† appeler
+    @param controlleur: Le controlleur ‡ appeler
     '''
     depense_id = 0
     while not depense_id or depense_id == 0:
-        depense_id = input('Id de la d√©pense: ')
+        depense_id = input('Id de la dÈpense: ')
     controlleur.voir_depense(depense_id)
 
 def modifier_depense(controlleur):
     '''
-    Affiche le formulaire de modification d'une d√©pense
-    @param controlleur: Le controlleur √† appeler
+    @param controlleur: Le controlleur ‡ appeler
     '''
     depense_id = 0
     while not depense_id or depense_id == 0:
-        depense_id = input('Id de la d√©pense: ')
-    depense_nom = input("Nom de la d√©pense (0 si aucun changement): ")
+    depense_nom = input("Nom de la dÈpense (0 si aucun changement): ")
     if depense_nom == '0':
         depense_nom = None
-    depense_montant = input('Montant de la d√©pense (0 si aucun changement): ')
+    depense_montant = input('Montant de la dÈpense (0 si aucun changement): ')
     if depense_montant == '0' or not Nombre.is_float(depense_montant):
         depense_montant = None
-    depense_categorie = input('Cat√©gorie de la d√©pense (0 si aucun changement): ')
+    depense_categorie = input('CatÈgorie de la dÈpense (0 si aucun changement): ')
     if depense_categorie == 0:
         depense_categorie = None
-    depense_description = input('Description de la d√©pense (0 si aucun changement): ')
+    depense_description = input('Description de la dÈpense (0 si aucun changement): ')
     if depense_description == '0':
         depense_description = None
     controlleur.modifier_depense(depense_id, depense_nom, depense_montant, depense_categorie, depense_description)
     
 def ajouter_depense(controlleur):
     '''
-    Affiche le formulaire d'ajout d'une d√©pense
-    @param controlleur: Le controlleur √† appeler
+    @param controlleur: Le controlleur ‡ appeler
     '''
     depense_nom = ""
     depense_montant = 0.0
     depense_categorie = 0
     while not depense_nom or depense_nom.strip() == "":
-        depense_nom = input("Nom de la d√©pense: ")
+        depense_nom = input("Nom de la dÈpense: ")
     while not depense_montant or not Nombre.is_float(depense_montant) or float(depense_montant) == 0:
-        depense_montant = input('Montant de la d√©pense: ')
+        depense_montant = input('Montant de la dÈpense: ')
     while not depense_categorie or depense_categorie == 0:
-        depense_categorie = input('Cat√©gorie de la d√©pense: ')
-    depense_description = input('Description de la d√©pense (Entr√©e si aucune): ')
+    depense_description = input('Description de la dÈpense (EntrÈe si aucune): ')
     controlleur.ajouter_depense(depense_nom, depense_montant, depense_categorie, depense_description)
 
 def supprimer_depense(controlleur):
     '''
-    Affiche le formulaire de suppression d'une d√©pense
-    @param controlleur: Le controlleur √† appeler
+    @param controlleur: Le controlleur ‡ appeler
     '''
     depense_id = 0
     while not depense_id or depense_id == 0:
-        depense_id = input('Id de la d√©pense: ')
+        depense_id = input('Id de la dÈpense: ')
     controlleur.supprimer_depense(depense_id)
 
 def valider_choix(nb_options):
