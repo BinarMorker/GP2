@@ -1,8 +1,11 @@
 #!/usr/bin/python3
 
 import sys
+
+sys.path.insert(0, '/views/')
+
 from PyQt5.QtWidgets import QApplication
-import principale as principale
+import views.principale as principale
 
 app = QApplication(sys.argv)
 fenetre = principale.fenetrePrincipale()
