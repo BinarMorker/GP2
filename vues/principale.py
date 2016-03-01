@@ -1,9 +1,9 @@
 from PyQt5.QtWidgets import QMainWindow
 from PyQt5.QtCore import QObject, pyqtSlot, pyqtSignal
-import controllers
-import models
-from views.ui_test import Ui_MainWindow
-from controllers.creerCategorie import creerCategorie
+import controlleurs
+import modeles
+from vues.ui_test import Ui_MainWindow
+from controlleurs.creerCategorie import creerCategorie
 
 class fenetrePrincipale(QMainWindow):
 
