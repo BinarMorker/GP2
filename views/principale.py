@@ -1,6 +1,9 @@
 from PyQt5.QtWidgets import QMainWindow
 from PyQt5.QtCore import QObject, pyqtSlot, pyqtSignal
+import controllers
+import models
 from views.ui_test import Ui_MainWindow
+from controllers.creerCategorie import creerCategorie
 
 class fenetrePrincipale(QMainWindow):
 
@@ -10,6 +13,7 @@ class fenetrePrincipale(QMainWindow):
 		self.ui = Ui_MainWindow()
 		self.ui.setupUi(self)
 		self.ui.onglets.tabBar().hide()
+		self.controleurCreerCategorie = creerCategorie(self)
 		self.ui.boutonDepenses.clicked.connect(self.depenses)
 		self.ui.boutonCategories.clicked.connect(self.categories)
 		self.ui.boutonMembres.clicked.connect(self.membres)
@@ -59,7 +63,7 @@ class fenetrePrincipale(QMainWindow):
 
 	@pyqtSlot()
 	def ajouterCategorie(self):
-		self.ui.onglets.setCurrentWidget(self.ui.ajouterCategorie)
+		self.controleurCreerCategorie.activer()
 
 	@pyqtSlot()
 	def modifierCategorie(self):
