@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import QMainWindow
 from PyQt5.QtCore import QObject, pyqtSlot, pyqtSignal
-from ui_test import Ui_MainWindow
+from views.ui_test import Ui_MainWindow
 
 class fenetrePrincipale(QMainWindow):
 
@@ -13,6 +13,8 @@ class fenetrePrincipale(QMainWindow):
 		self.ui.boutonDepenses.clicked.connect(self.depenses)
 		self.ui.boutonCategories.clicked.connect(self.categories)
 		self.ui.boutonMembres.clicked.connect(self.membres)
+		self.ui.boutonParametres.clicked.connect(self.parametres)
+		self.ui.boutonAPropos.clicked.connect(self.aPropos)
 		self.ui.boutonAjouterDepense.clicked.connect(self.ajouterDepense)
 		self.ui.boutonEditerDepense.clicked.connect(self.modifierDepense)
 		self.ui.boutonRetirerDepense.clicked.connect(self.supprimerDepense)
@@ -90,3 +92,11 @@ class fenetrePrincipale(QMainWindow):
 	@pyqtSlot()
 	def supprimerMembre(self):
 		print("supprimer membre")
+
+	@pyqtSlot()
+	def parametres(self):
+		self.ui.onglets.setCurrentWidget(self.ui.ongletParametres)
+
+	@pyqtSlot()
+	def aPropos(self):
+		self.ui.onglets.setCurrentWidget(self.ui.ongletAPropos)
