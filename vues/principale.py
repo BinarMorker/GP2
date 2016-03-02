@@ -17,6 +17,7 @@ class fenetrePrincipale(QMainWindow):
 		self.ui.boutonDepenses.clicked.connect(self.depenses)
 		self.ui.boutonCategories.clicked.connect(self.categories)
 		self.ui.boutonMembres.clicked.connect(self.membres)
+		self.ui.boutonAttribution.clicked.connect(self.attribution)
 		self.ui.boutonParametres.clicked.connect(self.parametres)
 		self.ui.boutonAPropos.clicked.connect(self.aPropos)
 		self.ui.boutonAjouterDepense.clicked.connect(self.ajouterDepense)
@@ -95,6 +96,10 @@ class fenetrePrincipale(QMainWindow):
 	@pyqtSlot()
 	def supprimerMembre(self):
 		print("supprimer membre")
+		
+	@pyqtSlot()
+	def attribution(self):
+		self.ui.onglets.setCurrentWidget(self.ui.ongletAttribution)
 
 	@pyqtSlot()
 	def parametres(self):
