@@ -605,9 +605,9 @@ class Ui_MainWindow(object):
         self.editerCatChampNom = QtWidgets.QLineEdit(self.editerCategorie)
         self.editerCatChampNom.setObjectName("editerCatChampNom")
         self.formLayout_13.setWidget(0, QtWidgets.QFormLayout.FieldRole, self.editerCatChampNom)
-        self.editerCatTabDesc = QtWidgets.QTextEdit(self.editerCategorie)
-        self.editerCatTabDesc.setObjectName("editerCatTabDesc")
-        self.formLayout_13.setWidget(1, QtWidgets.QFormLayout.FieldRole, self.editerCatTabDesc)
+        self.editerCatChampDesc = QtWidgets.QTextEdit(self.editerCategorie)
+        self.editerCatChampDesc.setObjectName("editerCatChampDesc")
+        self.formLayout_13.setWidget(1, QtWidgets.QFormLayout.FieldRole, self.editerCatChampDesc)
         self.verticalLayout_19.addLayout(self.formLayout_13)
         self.editerCatBoutonsControle = QtWidgets.QDialogButtonBox(self.editerCategorie)
         self.editerCatBoutonsControle.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Save)
@@ -625,7 +625,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.onglets.setCurrentIndex(15)
+        self.onglets.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
