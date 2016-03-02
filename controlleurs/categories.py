@@ -19,7 +19,8 @@ class CategoriesControlleur(Controlleur):
 			categories = self.session.query(Categorie).all()
 			for categorie in categories:
 				print(str(categorie.id) + '\n' + 
-					categorie.nom + '\n-------')
+					categorie.nom + '\n-------'+
+					categorie.description + '\n-------')
 				for depense in categorie.depenses:
 					print(depense.nom + '\n--')
 		except NoResultFound:
@@ -32,11 +33,11 @@ class CategoriesControlleur(Controlleur):
 		'''
 		try:
 			categorie = self.session.query(Categorie).filter(Categorie.id == categorie_id).one()
-			print(str(categorie.id) + '\n' + categorie.nom)
+			print(str(categorie.id) + '\n' + categorie.nom + '\n' + categorie.description)
 		except NoResultFound:
 			print('Entrée introuvable')
 		
-	def ajouter_categorie(self, nom):
+	def ajouter_categorie(self, nom, description):
 		'''
 		Ajoute une catégorie
 		@param nom: Le nom de la nouvelle catégorie
@@ -48,11 +49,11 @@ class CategoriesControlleur(Controlleur):
 			categorie.nom = nom
 			self.session.add(categorie)
 			self.session.commit()
-			print(str(categorie.id) + '\n' + categorie.nom)
+			print(str(categorie.id) + '\n' + categorie.nom + '\n' + categorie.description)
 		except AssertionError:
 			print('Le format est invalide')
 		
-	def modifier_categorie(self, categorie_id, nom = None):
+	def modifier_categorie(self, categorie_id, nom = None, description = None):
 		'''
 		Modifie une catégorie existante
 		@param categorie_id: L'identifiant de la catégorie
@@ -64,8 +65,12 @@ class CategoriesControlleur(Controlleur):
 				if nom.strip() == "":
 					raise AssertionError
 				categorie.nom = nom
+			if description != None:
+				if description.strip() == "":
+					raise AssertionError
+				categorie.description = description
 			self.session.commit()
-			print(str(categorie.id) + '\n' + categorie.nom)
+			print(str(categorie.id) + '\n' + categorie.nom + '\n' + categorie.description)
 		except AssertionError:
 			print('Le format est invalide')
 		except NoResultFound:
@@ -80,6 +85,6 @@ class CategoriesControlleur(Controlleur):
 			categorie = self.session.query(Categorie).filter(Categorie.id == categorie_id).one()
 			self.session.delete(categorie)
 			self.session.commit()
-			print(str(categorie.id) + '\n' + categorie.nom + '\nSupprimé')
+			print(str(categorie.id) + '\n' + categorie.nom + '\n' + categorie.description + '\nSupprimé')
 		except NoResultFound:
 			print('Entrée introuvable')
