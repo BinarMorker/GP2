@@ -26,8 +26,8 @@ class DepensesControlleur(Controlleur):
 					str(depense.montant) + '\n' + 
 					depense.categorie.nom + '\n' + 
 					depense.description + '\n-------')
-				for division in depense.divisions:
-					print(division.entite.nom + ': ' + str(division.pourcentage) + '\n--')
+				for distribution in depense.distributions:
+					print(distribution.membre.nom + ': ' + str(distribution.pourcentage) + '\n--')
 		except NoResultFound:
 			print('Entrée introuvable')
 		
