@@ -3,7 +3,7 @@ from PyQt5.QtCore import QObject, pyqtSlot, pyqtSignal
 import controlleurs
 import modeles
 from vues.ui_test import Ui_MainWindow
-from controlleurs.creerCategorie import creerCategorie
+from controlleurs.vuecategories import controleurCategories
 
 class fenetrePrincipale(QMainWindow):
 
@@ -13,10 +13,11 @@ class fenetrePrincipale(QMainWindow):
 		self.ui = Ui_MainWindow()
 		self.ui.setupUi(self)
 		self.ui.onglets.tabBar().hide()
-		self.controleurCreerCategorie = creerCategorie(self)
+		self.controleurCategories = controleurCategories(self)
 		self.ui.boutonDepenses.clicked.connect(self.depenses)
 		self.ui.boutonCategories.clicked.connect(self.categories)
 		self.ui.boutonMembres.clicked.connect(self.membres)
+		self.ui.boutonAttribution.clicked.connect(self.attribution)
 		self.ui.boutonParametres.clicked.connect(self.parametres)
 		self.ui.boutonAPropos.clicked.connect(self.aPropos)
 		self.ui.boutonAjouterDepense.clicked.connect(self.ajouterDepense)
@@ -31,11 +32,6 @@ class fenetrePrincipale(QMainWindow):
 		self.ui.boutonEditerMembre.clicked.connect(self.modifierMembre)
 		self.ui.boutonRetirerMembre.clicked.connect(self.supprimerMembre)
 		self.ui.boutonVoirMembre.clicked.connect(self.voirMembre)
-
-	@pyqtSlot()
-	def derp(self):
-		print("derp")
-		self.supersignal.emit()
 
 	@pyqtSlot()
 	def depenses(self):
@@ -63,19 +59,23 @@ class fenetrePrincipale(QMainWindow):
 
 	@pyqtSlot()
 	def ajouterCategorie(self):
-		self.controleurCreerCategorie.activer()
+		self.controleurCategories.ajouter()
+		#self.controleurCreerCategorie.activer()
 
 	@pyqtSlot()
 	def modifierCategorie(self):
-		self.ui.onglets.setCurrentWidget(self.ui.editerCategorie)
+		self.controleurCategories.modifier("derp")
+		#self.controleurModifierCategorie.activer()
 
 	@pyqtSlot()
 	def voirCategorie(self):
-		self.ui.onglets.setCurrentWidget(self.ui.voirCategorie)
+		self.controleurCategories.voir("derp")
+		#self.controleurVoirCategorie.activer()
 
 	@pyqtSlot()
 	def supprimerCategorie(self):
-		print("supprimer catégorie")
+		self.controleurCategories.supprimer("derp")
+		#print("supprimer membre")
 
 	@pyqtSlot()
 	def membres(self):
@@ -96,6 +96,10 @@ class fenetrePrincipale(QMainWindow):
 	@pyqtSlot()
 	def supprimerMembre(self):
 		print("supprimer membre")
+		
+	@pyqtSlot()
+	def attribution(self):
+		self.ui.onglets.setCurrentWidget(self.ui.ongletAttribution)
 
 	@pyqtSlot()
 	def parametres(self):
