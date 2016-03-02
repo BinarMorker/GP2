@@ -11,7 +11,7 @@ class modifierCategorie:
 		self.fenetre.ui.editerCatBoutonsControle.rejected.connect(self.annuler)
 		print("prout2")
 	
-	def activer(self):
+	def activer(self, categorie):
 		self.fenetre.ui.editerCatChampNom.setText("derp")
 		self.fenetre.ui.editerCatChampDesc.setText("banana")
 		self.fenetre.ui.onglets.setCurrentWidget(self.onglet)
