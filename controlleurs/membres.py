@@ -5,7 +5,7 @@
 from modeles.membre import Membre
 from outils.basededonnees import *
 
-class MembresControlleur(Controlleur):
+class MembresControlleur:
 	'''
 	Le controlleur des membre
 	'''
