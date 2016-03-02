@@ -107,7 +107,7 @@
        <enum>QTabWidget::North</enum>
       </property>
       <property name="currentIndex">
-       <number>5</number>
+       <number>15</number>
       </property>
       <widget class="QWidget" name="ongletAPropos">
        <attribute name="title">
@@ -420,7 +420,7 @@
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QLineEdit" name="creerChampNom"/>
+           <widget class="QLineEdit" name="creerDepenseChampNom"/>
           </item>
           <item row="1" column="0">
            <widget class="QLabel" name="label_2">
@@ -433,7 +433,7 @@
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="QComboBox" name="comboBox"/>
+           <widget class="QComboBox" name="creerDepenseComboBoxCat"/>
           </item>
           <item row="2" column="0">
            <widget class="QLabel" name="label_3">
@@ -446,7 +446,7 @@
            </widget>
           </item>
           <item row="2" column="1">
-           <widget class="QTextEdit" name="textEdit"/>
+           <widget class="QTextEdit" name="creerDepenseChampDesc"/>
           </item>
           <item row="3" column="0">
            <widget class="QLabel" name="label_4">
@@ -459,7 +459,7 @@
            </widget>
           </item>
           <item row="3" column="1">
-           <widget class="QDoubleSpinBox" name="doubleSpinBox">
+           <widget class="QDoubleSpinBox" name="creerDepenseSpinBoxMontant">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -479,7 +479,7 @@
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
             </property>
             <property name="readOnly">
-             <bool>true</bool>
+             <bool>false</bool>
             </property>
             <property name="buttonSymbols">
              <enum>QAbstractSpinBox::NoButtons</enum>
@@ -496,7 +496,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QTableView" name="tableView_2"/>
+         <widget class="QTableView" name="creerDepenseTableauDistribution"/>
         </item>
         <item>
          <widget class="QDialogButtonBox" name="buttonBox">
@@ -529,7 +529,7 @@
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QLineEdit" name="lineEdit_2">
+           <widget class="QLineEdit" name="voirDepenseChampNom">
             <property name="readOnly">
              <bool>true</bool>
             </property>
@@ -543,7 +543,7 @@
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="QLineEdit" name="lineEdit_3">
+           <widget class="QLineEdit" name="voirDepenseChampCat">
             <property name="readOnly">
              <bool>true</bool>
             </property>
@@ -557,7 +557,7 @@
            </widget>
           </item>
           <item row="2" column="1">
-           <widget class="QTextEdit" name="textEdit_2">
+           <widget class="QTextEdit" name="voirDepenseChampDesc">
             <property name="readOnly">
              <bool>true</bool>
             </property>
@@ -571,7 +571,7 @@
            </widget>
           </item>
           <item row="3" column="1">
-           <widget class="QDoubleSpinBox" name="doubleSpinBox_2">
+           <widget class="QDoubleSpinBox" name="voirDepenseSpinBoxMontant">
             <property name="maximumSize">
              <size>
               <width>100</width>
@@ -602,10 +602,10 @@
          </widget>
         </item>
         <item>
-         <widget class="QTableView" name="tableView"/>
+         <widget class="QTableView" name="voirDepenseTabDis"/>
         </item>
         <item>
-         <widget class="QDialogButtonBox" name="buttonBox_2">
+         <widget class="QDialogButtonBox" name="voirDepenseBoutonsControle">
           <property name="standardButtons">
            <set>QDialogButtonBox::Close</set>
           </property>
@@ -649,10 +649,10 @@
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QLineEdit" name="lineEdit_5"/>
+           <widget class="QLineEdit" name="editerDepenseChampNom"/>
           </item>
           <item row="2" column="1">
-           <widget class="QTextEdit" name="textEdit_3"/>
+           <widget class="QTextEdit" name="editerDepenseChampDesc"/>
           </item>
           <item row="3" column="0">
            <widget class="QLabel" name="label_13">
@@ -662,7 +662,7 @@
            </widget>
           </item>
           <item row="3" column="1">
-           <widget class="QDoubleSpinBox" name="doubleSpinBox_3">
+           <widget class="QDoubleSpinBox" name="editerDepenseSpinBoxMontant">
             <property name="maximumSize">
              <size>
               <width>100</width>
@@ -673,7 +673,7 @@
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
             </property>
             <property name="readOnly">
-             <bool>true</bool>
+             <bool>false</bool>
             </property>
             <property name="buttonSymbols">
              <enum>QAbstractSpinBox::NoButtons</enum>
@@ -681,7 +681,7 @@
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="QComboBox" name="comboBox_2"/>
+           <widget class="QComboBox" name="editerDepenseComboBoxCat"/>
           </item>
          </layout>
         </item>
@@ -693,10 +693,10 @@
          </widget>
         </item>
         <item>
-         <widget class="QTableView" name="tableView_3"/>
+         <widget class="QTableView" name="editerDepenseTabDis"/>
         </item>
         <item>
-         <widget class="QDialogButtonBox" name="buttonBox_3">
+         <widget class="QDialogButtonBox" name="editerDepenseBoutonsControle">
           <property name="standardButtons">
            <set>QDialogButtonBox::Cancel|QDialogButtonBox::Save</set>
           </property>
@@ -778,7 +778,7 @@
          </layout>
         </item>
         <item>
-         <widget class="QListView" name="memTab"/>
+         <widget class="QListView" name="tabMem"/>
         </item>
        </layout>
       </widget>
@@ -1023,7 +1023,7 @@
          </layout>
         </item>
         <item>
-         <widget class="QTableView" name="catTab"/>
+         <widget class="QTableView" name="tabCat"/>
         </item>
        </layout>
       </widget>
@@ -1159,7 +1159,7 @@
            <widget class="QLineEdit" name="editerCatChampNom"/>
           </item>
           <item row="1" column="1">
-           <widget class="QTextEdit" name="editerCatChampDesc"/>
+           <widget class="QTextEdit" name="editerCatTabDesc"/>
           </item>
          </layout>
         </item>
