@@ -69,7 +69,7 @@ class fenetrePrincipale(QMainWindow):
 
 	@pyqtSlot()
 	def modifierCategorie(self):
-		self.ui.onglets.setCurrentWidget(self.ui.editerCategorie)
+		self.controleurModifierCategorie.activer()
 
 	@pyqtSlot()
 	def voirCategorie(self):
