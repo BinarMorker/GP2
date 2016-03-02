@@ -4,6 +4,7 @@ import controlleurs
 import modeles
 from vues.ui_test import Ui_MainWindow
 from controlleurs.creerCategorie import creerCategorie
+from controlleurs.modifierCategorie import modifierCategorie
 
 class fenetrePrincipale(QMainWindow):
 
@@ -14,6 +15,7 @@ class fenetrePrincipale(QMainWindow):
 		self.ui.setupUi(self)
 		self.ui.onglets.tabBar().hide()
 		self.controleurCreerCategorie = creerCategorie(self)
+		self.controleurModifierCategorie = modifierCategorie(self)
 		self.ui.boutonDepenses.clicked.connect(self.depenses)
 		self.ui.boutonCategories.clicked.connect(self.categories)
 		self.ui.boutonMembres.clicked.connect(self.membres)
