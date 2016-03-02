@@ -11,7 +11,7 @@ class voirCategorie:
 		self.fenetre.ui.voirCatBoutonsControle.rejected.connect(self.annuler)
 		print("prout2")
 	
-	def activer(self):
+	def activer(self, categorie):
 		self.fenetre.ui.voirCatChampNom.setText("derp")
 		self.fenetre.ui.voirCatChampDesc.setText("banana")
 		self.fenetre.ui.onglets.setCurrentWidget(self.onglet)

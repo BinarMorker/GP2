@@ -3,9 +3,7 @@ from PyQt5.QtCore import QObject, pyqtSlot, pyqtSignal
 import controlleurs
 import modeles
 from vues.ui_test import Ui_MainWindow
-from controlleurs.creerCategorie import creerCategorie
-from controlleurs.modifierCategorie import modifierCategorie
-from controlleurs.voirCategorie import voirCategorie
+from controlleurs.vuecategories import controleurCategories
 
 class fenetrePrincipale(QMainWindow):
 
@@ -15,9 +13,7 @@ class fenetrePrincipale(QMainWindow):
 		self.ui = Ui_MainWindow()
 		self.ui.setupUi(self)
 		self.ui.onglets.tabBar().hide()
-		self.controleurCreerCategorie = creerCategorie(self)
-		self.controleurModifierCategorie = modifierCategorie(self)
-		self.controleurVoirCategorie = voirCategorie(self)
+		self.controleurCategories = controleurCategories(self)
 		self.ui.boutonDepenses.clicked.connect(self.depenses)
 		self.ui.boutonCategories.clicked.connect(self.categories)
 		self.ui.boutonMembres.clicked.connect(self.membres)
@@ -62,19 +58,23 @@ class fenetrePrincipale(QMainWindow):
 
 	@pyqtSlot()
 	def ajouterCategorie(self):
-		self.controleurCreerCategorie.activer()
+		self.controleurCategories.ajouter()
+		#self.controleurCreerCategorie.activer()
 
 	@pyqtSlot()
 	def modifierCategorie(self):
-		self.controleurModifierCategorie.activer()
+		self.controleurCategories.modifier("derp")
+		#self.controleurModifierCategorie.activer()
 
 	@pyqtSlot()
 	def voirCategorie(self):
-		self.controleurVoirCategorie.activer()
+		self.controleurCategories.voir("derp")
+		#self.controleurVoirCategorie.activer()
 
 	@pyqtSlot()
 	def supprimerCategorie(self):
-		print("supprimer membre")
+		self.controleurCategories.supprimer("derp")
+		#print("supprimer membre")
 
 	@pyqtSlot()
 	def membres(self):
