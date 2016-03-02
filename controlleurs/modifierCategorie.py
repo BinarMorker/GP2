@@ -12,8 +12,8 @@ class modifierCategorie:
 		print("prout2")
 	
 	def activer(self):
-		self.fenetre.ui.modifierCatChampNom.setText("derp")
-		self.fenetre.ui.modifierCatChampDesc.setText("banana")
+		self.fenetre.ui.editerCatChampNom.setText("derp")
+		self.fenetre.ui.editerCatChampDesc.setText("banana")
 		self.fenetre.ui.onglets.setCurrentWidget(self.onglet)
 
 	@pyqtSlot()
