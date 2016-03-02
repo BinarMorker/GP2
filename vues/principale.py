@@ -5,6 +5,7 @@ import modeles
 from vues.ui_test import Ui_MainWindow
 from controlleurs.creerCategorie import creerCategorie
 from controlleurs.modifierCategorie import modifierCategorie
+from controlleurs.voirCategorie import voirCategorie
 
 class fenetrePrincipale(QMainWindow):
 
@@ -16,6 +17,7 @@ class fenetrePrincipale(QMainWindow):
 		self.ui.onglets.tabBar().hide()
 		self.controleurCreerCategorie = creerCategorie(self)
 		self.controleurModifierCategorie = modifierCategorie(self)
+		self.controleurVoirCategorie = voirCategorie(self)
 		self.ui.boutonDepenses.clicked.connect(self.depenses)
 		self.ui.boutonCategories.clicked.connect(self.categories)
 		self.ui.boutonMembres.clicked.connect(self.membres)
@@ -33,11 +35,6 @@ class fenetrePrincipale(QMainWindow):
 		self.ui.boutonEditerMembre.clicked.connect(self.modifierMembre)
 		self.ui.boutonRetirerMembre.clicked.connect(self.supprimerMembre)
 		self.ui.boutonVoirMembre.clicked.connect(self.voirMembre)
-
-	@pyqtSlot()
-	def derp(self):
-		print("derp")
-		self.supersignal.emit()
 
 	@pyqtSlot()
 	def depenses(self):
@@ -73,11 +70,11 @@ class fenetrePrincipale(QMainWindow):
 
 	@pyqtSlot()
 	def voirCategorie(self):
-		self.ui.onglets.setCurrentWidget(self.ui.voirCategorie)
+		self.controleurVoirCategorie.activer()
 
 	@pyqtSlot()
 	def supprimerCategorie(self):
-		print("supprimer catégorie")
+		print("supprimer membre")
 
 	@pyqtSlot()
 	def membres(self):

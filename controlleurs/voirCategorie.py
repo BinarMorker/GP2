@@ -1,24 +1,24 @@
 from PyQt5.QtCore import QObject, pyqtSlot, pyqtSignal
 
-class supprimerCategorie:
+class voirCategorie:
 	
 	sauvegarder = pyqtSignal()
 
 	def __init__(self, fenetrePrincipale):
 		self.fenetre = fenetrePrincipale
-		self.onglet = self.fenetre.ui.effacerCategorie
-		self.fenetre.ui.effacerCatBoutonsControle.accepted.connect(self.valider)
-		self.fenetre.ui.effacerCatBoutonsControle.rejected.connect(self.annuler)
+		self.onglet = self.fenetre.ui.voirCategorie
+		self.fenetre.ui.voirCatBoutonsControle.accepted.connect(self.valider)
+		self.fenetre.ui.voirCatBoutonsControle.rejected.connect(self.annuler)
 		print("prout2")
 	
 	def activer(self):
-		self.fenetre.ui.effacerCatChampNom.setText("derp")
-		self.fenetre.ui.effacerCatChampDesc.setText("banana")
+		self.fenetre.ui.voirCatChampNom.setText("derp")
+		self.fenetre.ui.voirCatChampDesc.setText("banana")
 		self.fenetre.ui.onglets.setCurrentWidget(self.onglet)
 
 	@pyqtSlot()
 	def valider(self):
-		print("catégorie supprimée youpi")
+		print("catégorie visualisée youpi")
 		self.fenetre.ui.onglets.setCurrentWidget(self.fenetre.ui.ongletCategories)
 	
 	@pyqtSlot()
@@ -28,7 +28,7 @@ class supprimerCategorie:
 		print(self.getDescription())
 		
 	def getNom(self):
-		return self.fenetre.ui.effacerCatChampNom.text()
+		return self.fenetre.ui.voirCatChampNom.text()
 	
 	def getDescription(self):
-		return self.fenetre.ui.effacerCatChampDesc.document().toPlainText()
+		return self.fenetre.ui.voirCatChampDesc.document().toPlainText()
