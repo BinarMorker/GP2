@@ -107,7 +107,7 @@
        <enum>QTabWidget::North</enum>
       </property>
       <property name="currentIndex">
-       <number>15</number>
+       <number>13</number>
       </property>
       <widget class="QWidget" name="ongletAPropos">
        <attribute name="title">
@@ -1159,7 +1159,7 @@
            <widget class="QLineEdit" name="editerCatChampNom"/>
           </item>
           <item row="1" column="1">
-           <widget class="QTextEdit" name="editerCatTabDesc"/>
+           <widget class="QTextEdit" name="editerCatChampDesc"/>
           </item>
          </layout>
         </item>
