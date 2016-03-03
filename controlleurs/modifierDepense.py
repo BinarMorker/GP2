@@ -5,6 +5,7 @@ from controlleurs.categories import CategoriesControlleur
 class modifierDepense:
 	
 	sauvegarder = pyqtSignal()
+	depense_id = 0
 
 	def __init__(self, fenetrePrincipale):
 		self.fenetre = fenetrePrincipale
@@ -12,8 +13,9 @@ class modifierDepense:
 		self.fenetre.ui.editerDepenseBoutonsControle.accepted.connect(self.valider)
 		self.fenetre.ui.editerDepenseBoutonsControle.rejected.connect(self.annuler)
 
-	def activer(self, depense):	
-		depense = DepensesControlleur.voir_depense(1) #TODO: mettre le vrai ID
+	def activer(self, depense_id):
+		self.depense_id = depense_id
+		depense = DepensesControlleur.voir_depense(depense_id)
 		self.fenetre.ui.editerDepenseChampNom.setText(depense.nom)
 		self.fenetre.ui.editerDepenseComboBoxCat.model().clear()
 		for categorie in CategoriesControlleur.liste_categories():
@@ -26,7 +28,7 @@ class modifierDepense:
 	@pyqtSlot()
 	def valider(self):
 		DepensesControlleur.modifier_depense(
-			1, #TODO: mettre le vrai ID
+			self.depense_id,
 			self.getNom(), 
 			self.getMontant(), 
 			self.getCategorie(), 

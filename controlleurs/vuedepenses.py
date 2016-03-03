@@ -42,7 +42,8 @@ class controleurVueDepenses:
 
 	@pyqtSlot()	
 	def supprimer(self, depense):
-		print("supprimer la dépense yarr")
+		if (self.id_selectionne != -1):
+			controleur_depenses.supprimer_depense(self.id_selectionne)
 
 	@pyqtSlot()
 	def selectionner_id(self):

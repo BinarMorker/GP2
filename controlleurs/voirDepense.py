@@ -11,8 +11,8 @@ class voirDepense:
 		self.fenetre.ui.voirDepenseBoutonsControle.accepted.connect(self.valider)
 		self.fenetre.ui.voirDepenseBoutonsControle.rejected.connect(self.annuler)
 	
-	def activer(self, categorie):
-		depense = DepensesControlleur.voir_depense(1) #TODO: mettre le vrai ID
+	def activer(self, depense_id):
+		depense = DepensesControlleur.voir_depense(depense_id)
 		self.fenetre.ui.voirDepenseChampNom.setText(depense.nom)
 		self.fenetre.ui.voirDepenseChampCat.setText(depense.categorie.nom)
 		self.fenetre.ui.voirDepenseChampDesc.setText(depense.description)
