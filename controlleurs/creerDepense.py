@@ -21,15 +21,12 @@ class creerDepense:
 		print(str(self.fenetre.ui.creerDepenseChampNom.text()))
 		print(str(self.fenetre.ui.creerDepenseSpinBoxMontant.value()))
 		print(str(self.fenetre.ui.creerDepenseChampDesc.document().toPlainText()))
-		try:
-			DepensesControlleur.ajouter_depense(
-				str(self.fenetre.ui.creerDepenseChampNom.text()), 
-				self.fenetre.ui.creerDepenseSpinBoxMontant.value(), 
-				1, 
-				str(self.fenetre.ui.creerDepenseChampDesc.document().toPlainText())
-			)
-		except Exception as e:
-			print(e.message)
+		DepensesControlleur.ajouter_depense(
+			str(self.fenetre.ui.creerDepenseChampNom.text()), 
+			self.fenetre.ui.creerDepenseSpinBoxMontant.value(), 
+			1, 
+			str(self.fenetre.ui.creerDepenseChampDesc.document().toPlainText())
+		)
 		self.fenetre.ui.onglets.setCurrentWidget(self.fenetre.ui.ongletDepenses)
 	
 	@pyqtSlot()
