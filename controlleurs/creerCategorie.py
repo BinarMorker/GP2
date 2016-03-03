@@ -12,13 +12,13 @@ class creerCategorie:
 		print("prout")
 	
 	def activer(self):
-		self.fenetre.ui.creerCatChampNom.setText("derp")
-		self.fenetre.ui.creerCatChampDesc.setText("banana")
+		self.fenetre.ui.creerCatChampNom.setText("")
+		self.fenetre.ui.creerCatChampDesc.setText("")
 		self.fenetre.ui.onglets.setCurrentWidget(self.onglet)
 
 	@pyqtSlot()
 	def valider(self):
-		print("nouvelle catégorie créée youpi")
+		#ajouter_categorie(self.getNom(), self.getDescription())
 		self.fenetre.ui.onglets.setCurrentWidget(self.fenetre.ui.ongletCategories)
 	
 	@pyqtSlot()
