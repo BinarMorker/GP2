@@ -26,6 +26,10 @@ class fenetrePrincipale(QMainWindow):
 		self.ui.boutonEditerCategorie.clicked.connect(self.modifierCategorie)
 		self.ui.boutonRetirerCategorie.clicked.connect(self.supprimerCategorie)
 		self.ui.boutonVoirCategorie.clicked.connect(self.voirCategorie)
+		self.ui.boutonAjouterDepense.clicked.connect(self.ajouterDepense)
+		self.ui.boutonEditerDepense.clicked.connect(self.modifierDepense)
+		self.ui.boutonRetirerDepense.clicked.connect(self.supprimerDepense)
+		self.ui.boutonVoirDepense.clicked.connect(self.voirDepense)
 		self.ui.boutonAjouterMembre.clicked.connect(self.ajouterMembre)
 		self.ui.boutonEditerMembre.clicked.connect(self.modifierMembre)
 		self.ui.boutonRetirerMembre.clicked.connect(self.supprimerMembre)
@@ -54,26 +58,6 @@ class fenetrePrincipale(QMainWindow):
 	@pyqtSlot()
 	def categories(self):
 		self.ui.onglets.setCurrentWidget(self.ui.ongletCategories)
-
-	@pyqtSlot()
-	def ajouterCategorie(self):
-		self.controleurCategories.ajouter()
-		#self.controleurCreerCategorie.activer()
-
-	@pyqtSlot()
-	def modifierCategorie(self):
-		self.controleurCategories.modifier("derp")
-		#self.controleurModifierCategorie.activer()
-
-	@pyqtSlot()
-	def voirCategorie(self):
-		self.controleurCategories.voir("derp")
-		#self.controleurVoirCategorie.activer()
-
-	@pyqtSlot()
-	def supprimerCategorie(self):
-		self.controleurCategories.supprimer("derp")
-		#print("supprimer membre")
 
 	@pyqtSlot()
 	def membres(self):
