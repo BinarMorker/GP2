@@ -4,6 +4,7 @@ import controlleurs
 import modeles
 from vues.ui_test import Ui_MainWindow
 from controlleurs.vuecategories import controleurCategories
+from controlleurs.vuedepenses import controleurDepenses
 
 class fenetrePrincipale(QMainWindow):
 
@@ -14,16 +15,13 @@ class fenetrePrincipale(QMainWindow):
 		self.ui.setupUi(self)
 		self.ui.onglets.tabBar().hide()
 		self.controleurCategories = controleurCategories(self)
+		self.controleurDepenses = controleurDepenses(self)
 		self.ui.boutonDepenses.clicked.connect(self.depenses)
 		self.ui.boutonCategories.clicked.connect(self.categories)
 		self.ui.boutonMembres.clicked.connect(self.membres)
 		self.ui.boutonAttribution.clicked.connect(self.attribution)
 		self.ui.boutonParametres.clicked.connect(self.parametres)
 		self.ui.boutonAPropos.clicked.connect(self.aPropos)
-		self.ui.boutonAjouterDepense.clicked.connect(self.ajouterDepense)
-		self.ui.boutonEditerDepense.clicked.connect(self.modifierDepense)
-		self.ui.boutonRetirerDepense.clicked.connect(self.supprimerDepense)
-		self.ui.boutonVoirDepense.clicked.connect(self.voirDepense)
 		self.ui.boutonAjouterMembre.clicked.connect(self.ajouterMembre)
 		self.ui.boutonEditerMembre.clicked.connect(self.modifierMembre)
 		self.ui.boutonRetirerMembre.clicked.connect(self.supprimerMembre)
@@ -32,22 +30,6 @@ class fenetrePrincipale(QMainWindow):
 	@pyqtSlot()
 	def depenses(self):
 		self.ui.onglets.setCurrentWidget(self.ui.ongletDepenses)
-
-	@pyqtSlot()
-	def ajouterDepense(self):
-		self.ui.onglets.setCurrentWidget(self.ui.ajouterDepense)
-
-	@pyqtSlot()
-	def modifierDepense(self):
-		self.ui.onglets.setCurrentWidget(self.ui.editerDepense)
-
-	@pyqtSlot()
-	def voirDepense(self):
-		self.ui.onglets.setCurrentWidget(self.ui.voirDepense)
-
-	@pyqtSlot()
-	def supprimerDepense(self):
-		print("supprimer dépense")
 
 	@pyqtSlot()
 	def categories(self):

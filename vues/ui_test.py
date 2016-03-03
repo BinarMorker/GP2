@@ -282,10 +282,10 @@ class Ui_MainWindow(object):
         self.creerDepenseTableauDistribution = QtWidgets.QTableView(self.ajouterDepense)
         self.creerDepenseTableauDistribution.setObjectName("creerDepenseTableauDistribution")
         self.verticalLayout.addWidget(self.creerDepenseTableauDistribution)
-        self.buttonBox = QtWidgets.QDialogButtonBox(self.ajouterDepense)
-        self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Save)
-        self.buttonBox.setObjectName("buttonBox")
-        self.verticalLayout.addWidget(self.buttonBox)
+        self.creerDepBoutonsControle = QtWidgets.QDialogButtonBox(self.ajouterDepense)
+        self.creerDepBoutonsControle.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Save)
+        self.creerDepBoutonsControle.setObjectName("creerDepBoutonsControle")
+        self.verticalLayout.addWidget(self.creerDepBoutonsControle)
         self.onglets.addTab(self.ajouterDepense, "")
         self.voirDepense = QtWidgets.QWidget()
         self.voirDepense.setObjectName("voirDepense")
@@ -628,7 +628,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout.addWidget(self.onglets)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1098, 20))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1098, 27))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -636,7 +636,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.onglets.setCurrentIndex(2)
+        self.onglets.setCurrentIndex(7)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
