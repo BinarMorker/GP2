@@ -1,4 +1,8 @@
 from PyQt5.QtCore import QObject, pyqtSlot, pyqtSignal
+<<<<<<< HEAD
+=======
+from controlleurs.depenses import DepensesControlleur
+>>>>>>> d87b00e5fc0c85974cddba7affd6ba38cc23438d
 
 class creerDepense:
 	
@@ -18,14 +22,22 @@ class creerDepense:
 
 	@pyqtSlot()
 	def valider(self):
-		print("valider")
+
+		print(str(self.fenetre.ui.creerDepenseChampNom.text()))
+		print(str(self.fenetre.ui.creerDepenseSpinBoxMontant.value()))
+		print(str(self.fenetre.ui.creerDepenseChampDesc.document().toPlainText()))
+		DepensesControlleur.ajouter_depense(
+			str(self.fenetre.ui.creerDepenseChampNom.text()), 
+			self.fenetre.ui.creerDepenseSpinBoxMontant.value(), 
+			1, 
+			str(self.fenetre.ui.creerDepenseChampDesc.document().toPlainText())
+		)
 		self.fenetre.ui.onglets.setCurrentWidget(self.fenetre.ui.ongletDepenses)
 	
 	@pyqtSlot()
 	def annuler(self):
 		print("annuler")
 		self.fenetre.ui.onglets.setCurrentWidget(self.fenetre.ui.ongletDepenses)
-		
 		
 	def getNom(self):
 		return self.fenetre.ui.creerDepenseChampNom.text()

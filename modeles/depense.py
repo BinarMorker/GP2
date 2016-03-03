@@ -6,6 +6,8 @@ Created on 2016-02-23
 from sqlalchemy import *
 from sqlalchemy.orm import relationship, backref
 from modeles.distribution_depense import Distribution_Depense
+from modeles.categorie import Categorie
+from modeles.membre import Membre
 
 from modeles.base import Base
 

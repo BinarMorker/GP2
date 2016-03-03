@@ -29,7 +29,7 @@ class DistributionsDepensesControlleur:
         return distributions_depenses
 
     @staticmethod
-    def liste_distributions_depenses_entite(membre_id):
+    def liste_distributions_depenses_membre(membre_id):
         '''
         Montre une liste des distributions des dépenses
         @attention: À venir
