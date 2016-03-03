@@ -107,7 +107,7 @@
        <enum>QTabWidget::North</enum>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>7</number>
       </property>
       <widget class="QWidget" name="ongletAPropos">
        <attribute name="title">
@@ -519,7 +519,7 @@
          <widget class="QTableView" name="creerDepenseTableauDistribution"/>
         </item>
         <item>
-         <widget class="QDialogButtonBox" name="buttonBox">
+         <widget class="QDialogButtonBox" name="creerDepBoutonsControle">
           <property name="standardButtons">
            <set>QDialogButtonBox::Cancel|QDialogButtonBox::Save</set>
           </property>
@@ -1202,7 +1202,7 @@
      <x>0</x>
      <y>0</y>
      <width>1098</width>
-     <height>20</height>
+     <height>27</height>
     </rect>
    </property>
   </widget>

@@ -12,6 +12,10 @@ class controleurCategories:
 		self.controleurCreerCategorie = creerCategorie(self.fenetre)
 		self.controleurModifierCategorie = modifierCategorie(self.fenetre)
 		self.controleurVoirCategorie = voirCategorie(self.fenetre)
+		self.fenetre.ui.boutonAjouterCategorie.clicked.connect(self.ajouter)
+		self.fenetre.ui.boutonEditerCategorie.clicked.connect(self.modifier)
+		self.fenetre.ui.boutonRetirerCategorie.clicked.connect(self.supprimer)
+		self.fenetre.ui.boutonVoirCategorie.clicked.connect(self.voir)
 
 	@pyqtSlot()
 	def ajouter(self):
@@ -24,6 +28,7 @@ class controleurCategories:
 	@pyqtSlot()
 	def voir(self, categorie):
 		self.controleurVoirCategorie.activer(categorie)
-	
+
+	@pyqtSlot()
 	def supprimer(self, categorie):
 		print("supprimer la catégorie yarr")
