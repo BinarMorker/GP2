@@ -19,7 +19,7 @@ def tester_modeles(s):
     
     distribution = Distribution_Depense(
                 id_depense = 1,
-                id_entite = 1,
+                id_membre = 1,
                 pourcentage = 80,
                 montant_paye = 10.00)
     

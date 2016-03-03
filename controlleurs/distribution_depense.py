@@ -29,7 +29,7 @@ class DistributionsDepensesControlleur:
         return distributions_depenses
 
     @staticmethod
-    def liste_distributions_depenses_entite(membre_id):
+    def liste_distributions_depenses_membre(membre_id):
         '''
         Montre une liste des distributions des dépenses
         @attention: À venir
@@ -57,7 +57,7 @@ class DistributionsDepensesControlleur:
         '''
         distribution_depense = Distribution_Depense()
         distribution_depense.id_depense = depense_id
-        distribution_depense.id_entite = membre_id
+        distribution_depense.id_membre = membre_id
         if not pourcentage <= 0:
             raise AssertionError
         distribution_depense.pourcentage = pourcentage
