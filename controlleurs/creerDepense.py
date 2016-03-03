@@ -1,8 +1,5 @@
 from PyQt5.QtCore import QObject, pyqtSlot, pyqtSignal
-<<<<<<< HEAD
-=======
 from controlleurs.depenses import DepensesControlleur
->>>>>>> d87b00e5fc0c85974cddba7affd6ba38cc23438d
 
 class creerDepense:
 	
