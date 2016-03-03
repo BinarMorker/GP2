@@ -1,5 +1,6 @@
 from PyQt5.QtCore import QObject, pyqtSlot, pyqtSignal
 from controlleurs.depenses import DepensesControlleur
+from controlleurs.categories import CategoriesControlleur
 
 class creerDepense:
 	
@@ -13,21 +14,20 @@ class creerDepense:
 	
 	def activer(self):
 		self.fenetre.ui.creerDepenseChampNom.setText("")
+		self.fenetre.ui.creerDepenseComboBoxCat.model().clear()
+		for categorie in CategoriesControlleur.liste_categories():
+			self.fenetre.ui.creerDepenseComboBoxCat.addItem(categorie.nom, categorie.id)
 		self.fenetre.ui.creerDepenseChampDesc.setText("")
-		self.fenetre.ui.creerDepenseChampMontant.value(0)
+		self.fenetre.ui.creerDepenseSpinBoxMontant.setValue(0)
 		self.fenetre.ui.onglets.setCurrentWidget(self.onglet)
 
 	@pyqtSlot()
 	def valider(self):
-
-		print(str(self.fenetre.ui.creerDepenseChampNom.text()))
-		print(str(self.fenetre.ui.creerDepenseSpinBoxMontant.value()))
-		print(str(self.fenetre.ui.creerDepenseChampDesc.document().toPlainText()))
 		DepensesControlleur.ajouter_depense(
-			str(self.fenetre.ui.creerDepenseChampNom.text()), 
-			self.fenetre.ui.creerDepenseSpinBoxMontant.value(), 
-			1, 
-			str(self.fenetre.ui.creerDepenseChampDesc.document().toPlainText())
+			self.getNom(), 
+			self.getMontant(), 
+			self.getCategorie(), 
+			self.getDescription()
 		)
 		self.fenetre.ui.onglets.setCurrentWidget(self.fenetre.ui.ongletDepenses)
 	
@@ -39,8 +39,11 @@ class creerDepense:
 	def getNom(self):
 		return self.fenetre.ui.creerDepenseChampNom.text()
 	
+	def getCategorie(self):
+		return self.fenetre.ui.creerDepenseComboBoxCat.currentData()
+	
 	def getDescription(self):
 		return self.fenetre.ui.creerDepenseChampDesc.document().toPlainText()
 
 	def getMontant(self):
-		return self.fenetre.ui.creerDepenseChampMontant.value()
+		return self.fenetre.ui.creerDepenseSpinBoxMontant.value()

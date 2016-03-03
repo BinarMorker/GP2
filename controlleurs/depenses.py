@@ -40,10 +40,10 @@ class DepensesControlleur:
 		'''
 		depense = Depense()
 		if nom.strip() == "":
-			raise AssertionError
+			raise AssertionError("La dépense doit avoir un nom")
 		depense.nom = nom
 		if not Nombre.is_float(montant) or float(montant) <= 0:
-			raise AssertionError
+			raise AssertionError("Le montant de la dépense ne peut pas être nul")
 		depense.montant = montant
 		depense.id_categorie = id_categorie
 		depense.description = description

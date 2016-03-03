@@ -1,4 +1,6 @@
 from PyQt5.QtCore import QObject, pyqtSlot, pyqtSignal
+from controlleurs.depenses import DepensesControlleur
+from controlleurs.categories import CategoriesControlleur
 
 class modifierDepense:
 	
@@ -11,11 +13,25 @@ class modifierDepense:
 		self.fenetre.ui.editerDepenseBoutonsControle.rejected.connect(self.annuler)
 
 	def activer(self, depense):	
+		depense = DepensesControlleur.voir_depense(1) #TODO: mettre le vrai ID
+		self.fenetre.ui.editerDepenseChampNom.setText(depense.nom)
+		self.fenetre.ui.editerDepenseComboBoxCat.model().clear()
+		for categorie in CategoriesControlleur.liste_categories():
+			self.fenetre.ui.editerDepenseComboBoxCat.addItem(categorie.nom, categorie.id)
+		self.fenetre.ui.editerDepenseComboBoxCat.setCurrentText(depense.categorie.nom)
+		self.fenetre.ui.editerDepenseChampDesc.setText(depense.description)
+		self.fenetre.ui.editerDepenseSpinBoxMontant.setValue(depense.montant)
 		self.fenetre.ui.onglets.setCurrentWidget(self.onglet)
 
 	@pyqtSlot()
 	def valider(self):
-		print("dépense modifiée youpi")
+		DepensesControlleur.modifier_depense(
+			1, #TODO: mettre le vrai ID
+			self.getNom(), 
+			self.getMontant(), 
+			self.getCategorie(), 
+			self.getDescription()
+		)
 		self.fenetre.ui.onglets.setCurrentWidget(self.fenetre.ui.ongletDepenses)
 	
 	@pyqtSlot()
@@ -25,7 +41,13 @@ class modifierDepense:
 		print(self.getDescription())
 		
 	def getNom(self):
-		return self.fenetre.ui.editerCatChampNom.text()
+		return self.fenetre.ui.editerDepenseChampNom.text()
+	
+	def getCategorie(self):
+		return self.fenetre.ui.editerDepenseComboBoxCat.currentData()
 	
 	def getDescription(self):
-		return self.fenetre.ui.editerCatChampDesc.document().toPlainText()
+		return self.fenetre.ui.editerDepenseChampDesc.document().toPlainText()
+
+	def getMontant(self):
+		return self.fenetre.ui.editerDepenseSpinBoxMontant.value()
