@@ -1,7 +1,9 @@
-from sqlalchemy import create_engine, engine
-from sqlalchemy.orm import relationship, backref, sessionmaker
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+from outils.singleton import Singleton
 
-class Controlleur(object):
+@Singleton
+class BaseDeDonnees:
     
     session = None
     

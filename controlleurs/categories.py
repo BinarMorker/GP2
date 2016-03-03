@@ -3,83 +3,69 @@
 '''
 
 from modeles.categorie import Categorie
-from controlleurs.controlleur import Controlleur
-from sqlalchemy.orm.exc import NoResultFound
+from outils.basededonnees import *
 
-class CategoriesControlleur(Controlleur):
+class CategoriesControlleur:
 	'''
 	Le controlleur des catégories
 	'''
-
-	def liste_categories(self):
+	@staticmethod
+	def liste_categories():
 		'''
 		Montre une liste des catégories
 		'''
-		try:
-			categories = self.session.query(Categorie).all()
-			for categorie in categories:
-				print(str(categorie.id) + '\n' + 
-					categorie.nom + '\n-------')
-				for depense in categorie.depenses:
-					print(depense.nom + '\n--')
-		except NoResultFound:
-			print('Entrée introuvable')
+		categories = BaseDeDonnees.Instance().session.query(Categorie).all()
+		return categories
 		
-	def voir_categorie(self, categorie_id):
+	@staticmethod
+	def voir_categorie(categorie_id):
 		'''
 		Affiche une catégorie
 		@param categorie_id: L'identifiant de la catégorie à afficher
 		'''
-		try:
-			categorie = self.session.query(Categorie).filter(Categorie.id == categorie_id).one()
-			print(str(categorie.id) + '\n' + categorie.nom)
-		except NoResultFound:
-			print('Entrée introuvable')
+		categorie = BaseDeDonnees.Instance().session.query(Categorie).filter(Categorie.id == categorie_id).one()
+		return categorie
 		
-	def ajouter_categorie(self, nom):
+	@staticmethod
+	def ajouter_categorie(nom, description):
 		'''
 		Ajoute une catégorie
 		@param nom: Le nom de la nouvelle catégorie
 		'''
-		try:
-			categorie = Categorie()
-			if nom.strip() == "":
-				raise AssertionError
-			categorie.nom = nom
-			self.session.add(categorie)
-			self.session.commit()
-			print(str(categorie.id) + '\n' + categorie.nom)
-		except AssertionError:
-			print('Le format est invalide')
+		categorie = Categorie()
+		if nom.strip() == "":
+			raise AssertionError
+		categorie.nom = nom
+		BaseDeDonnees.Instance().session.add(categorie)
+		BaseDeDonnees.Instance().session.commit()
+		return categorie
 		
-	def modifier_categorie(self, categorie_id, nom = None):
+	@staticmethod
+	def modifier_categorie(categorie_id, nom = None, description = None):
 		'''
 		Modifie une catégorie existante
 		@param categorie_id: L'identifiant de la catégorie
 		@param nom: Le nouveau nom de la catégorie
 		'''
-		try:
-			categorie = self.session.query(Categorie).filter(Categorie.id == categorie_id).one()
-			if nom != None:
-				if nom.strip() == "":
-					raise AssertionError
-				categorie.nom = nom
-			self.session.commit()
-			print(str(categorie.id) + '\n' + categorie.nom)
-		except AssertionError:
-			print('Le format est invalide')
-		except NoResultFound:
-			print('Entrée introuvable')
+		categorie = BaseDeDonnees.Instance().session.query(Categorie).filter(Categorie.id == categorie_id).one()
+		if nom != None:
+			if nom.strip() == "":
+				raise AssertionError
+			categorie.nom = nom
+		if description != None:
+			if description.strip() == "":
+				raise AssertionError
+			categorie.description = description
+		BaseDeDonnees.Instance().session.commit()
+		return categorie
 		
-	def supprimer_categorie(self, categorie_id):
+	@staticmethod
+	def supprimer_categorie(categorie_id):
 		'''
 		Supprime une catégorie
 		@param categorie_id: L'identifiant de la catégorie à supprimer
 		'''
-		try:
-			categorie = self.session.query(Categorie).filter(Categorie.id == categorie_id).one()
-			self.session.delete(categorie)
-			self.session.commit()
-			print(str(categorie.id) + '\n' + categorie.nom + '\nSupprimé')
-		except NoResultFound:
-			print('Entrée introuvable')
+		categorie = BaseDeDonnees.Instance().session.query(Categorie).filter(Categorie.id == categorie_id).one()
+		BaseDeDonnees.Instance().session.delete(categorie)
+		BaseDeDonnees.Instance().session.commit()
+		return categorie

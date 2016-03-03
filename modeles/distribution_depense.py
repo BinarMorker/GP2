@@ -3,26 +3,26 @@ from sqlalchemy.orm import relationship, backref
 
 from modeles.base import Base
 
-class Division_Depense(Base):
+class Distribution_Depense(Base):
     '''
     classdocs
     '''
     
-    __tablename__ = "Divisions_Depenses"
+    __tablename__ = "Distributions_Depenses"
     id_depense = Column(INTEGER, ForeignKey('Depenses.id'), primary_key=True)
-    id_entite = Column(INTEGER, ForeignKey('Entites.id'), primary_key=True)
+    id_membre = Column(INTEGER, ForeignKey('Membres.id'), primary_key=True)
     pourcentage = Column(INTEGER)
     montant_paye = Column(FLOAT)
     
     depense = relationship("Depense", 
                            foreign_keys=[id_depense], 
-                           backref=backref("divisions", 
+                           backref=backref("distributions", 
                                            uselist=True
                                            )
                            )
-    entite = relationship("Entite", 
-                          foreign_keys=[id_entite], 
-                          backref=backref("divisions", 
+    membre = relationship("Membre", 
+                          foreign_keys=[id_membre], 
+                          backref=backref("distributions", 
                                           uselist=True
                                           )
                           )

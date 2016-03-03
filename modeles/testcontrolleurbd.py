@@ -1,6 +1,6 @@
 from modeles.depense import Depense
-from modeles.division_depense import Division_Depense
-from modeles.entite import Entite
+from modeles.distribution_depense import Distribution_Depense
+from modeles.membre import Membre
 from modeles.categorie import Categorie
 
 def tester_modeles(s):
@@ -14,16 +14,16 @@ def tester_modeles(s):
                 description = "",
                 montant = "15247.25")
     
-    entite = Entite(
+    membre = Membre(
                 nom = "Francois")
     
-    division = Division_Depense(
+    distribution = Distribution_Depense(
                 id_depense = 1,
                 id_entite = 1,
                 pourcentage = 80,
                 montant_paye = 10.00)
     
     
-    s.add_all([categorie, depense, entite, division])
+    s.add_all([categorie, depense, membre, distribution])
     
     s.commit()
