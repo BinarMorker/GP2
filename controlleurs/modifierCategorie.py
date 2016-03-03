@@ -9,7 +9,6 @@ class modifierCategorie:
 		self.onglet = self.fenetre.ui.editerCategorie
 		self.fenetre.ui.editerCatBoutonsControle.accepted.connect(self.valider)
 		self.fenetre.ui.editerCatBoutonsControle.rejected.connect(self.annuler)
-		print("prout2")
 	
 	def activer(self, categorie):
 		self.fenetre.ui.editerCatChampNom.setText("derp")

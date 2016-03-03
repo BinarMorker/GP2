@@ -9,7 +9,7 @@ class voirDepense:
 		self.onglet = self.fenetre.ui.voirDepense
 		self.fenetre.ui.voirDepenseBoutonsControle.accepted.connect(self.valider)
 		self.fenetre.ui.voirDepenseBoutonsControle.rejected.connect(self.annuler)
-		print("prout4")
+
 	
 	def activer(self, categorie):
 		self.fenetre.ui.voirDepenseChampNom.setText("derp")
@@ -24,3 +24,12 @@ class voirDepense:
 	@pyqtSlot()
 	def annuler(self):
 		self.fenetre.ui.onglets.setCurrentWidget(self.fenetre.ui.ongletDepenses)
+		print(self.getNom())
+		print(self.getDescription())
+		
+	def getNom(self):
+		return self.fenetre.ui.voirDepenseChampNom.text()
+	
+	def getDescription(self):
+		return self.fenetre.ui.voirDepenseChampDesc.document().toPlainText()
+

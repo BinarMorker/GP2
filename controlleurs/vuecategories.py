@@ -29,6 +29,6 @@ class controleurCategories:
 	def voir(self, categorie):
 		self.controleurVoirCategorie.activer(categorie)
 
-	@pyqtSlot()
+	@pyqtSlot()	
 	def supprimer(self, categorie):
 		print("supprimer la catégorie yarr")

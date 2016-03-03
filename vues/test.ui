@@ -107,7 +107,7 @@
        <enum>QTabWidget::North</enum>
       </property>
       <property name="currentIndex">
-       <number>7</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="ongletAPropos">
        <attribute name="title">
@@ -320,6 +320,9 @@
           </property>
           <item>
            <widget class="QPushButton" name="boutonAjouterDepense">
+            <property name="text">
+             <string>Créer</string>
+            </property>
             <property name="icon">
              <iconset>
               <normaloff>../images/list-add.svg</normaloff>../images/list-add.svg</iconset>
@@ -329,7 +332,7 @@
           <item>
            <widget class="QPushButton" name="boutonEditerDepense">
             <property name="text">
-             <string/>
+             <string>Éditer</string>
             </property>
             <property name="icon">
              <iconset>
@@ -340,7 +343,7 @@
           <item>
            <widget class="QPushButton" name="boutonVoirDepense">
             <property name="text">
-             <string/>
+             <string>Voir</string>
             </property>
             <property name="icon">
              <iconset>
@@ -350,6 +353,9 @@
           </item>
           <item>
            <widget class="QPushButton" name="boutonRetirerDepense">
+            <property name="text">
+             <string>Retirer</string>
+            </property>
             <property name="icon">
              <iconset>
               <normaloff>../images/list-remove.svg</normaloff>../images/list-remove.svg</iconset>
@@ -502,7 +508,10 @@
              <bool>false</bool>
             </property>
             <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::NoButtons</enum>
+             <enum>QAbstractSpinBox::UpDownArrows</enum>
+            </property>
+            <property name="maximum">
+             <double>9999999999.000000000000000</double>
             </property>
            </widget>
           </item>
@@ -519,7 +528,7 @@
          <widget class="QTableView" name="creerDepenseTableauDistribution"/>
         </item>
         <item>
-         <widget class="QDialogButtonBox" name="creerDepBoutonsControle">
+         <widget class="QDialogButtonBox" name="creerDepenseBoutonsControle">
           <property name="standardButtons">
            <set>QDialogButtonBox::Cancel|QDialogButtonBox::Save</set>
           </property>
@@ -610,6 +619,9 @@
             <property name="buttonSymbols">
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
+            <property name="maximum">
+             <double>999999999999999.000000000000000</double>
+            </property>
            </widget>
           </item>
          </layout>
@@ -696,7 +708,10 @@
              <bool>false</bool>
             </property>
             <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::NoButtons</enum>
+             <enum>QAbstractSpinBox::UpDownArrows</enum>
+            </property>
+            <property name="maximum">
+             <double>999999999999.000000000000000</double>
             </property>
            </widget>
           </item>
@@ -741,7 +756,7 @@
           <item>
            <widget class="QPushButton" name="boutonAjouterMembre">
             <property name="text">
-             <string/>
+             <string>Créer</string>
             </property>
             <property name="icon">
              <iconset>
@@ -752,7 +767,7 @@
           <item>
            <widget class="QPushButton" name="boutonEditerMembre">
             <property name="text">
-             <string/>
+             <string>Éditer</string>
             </property>
             <property name="icon">
              <iconset>
@@ -763,7 +778,7 @@
           <item>
            <widget class="QPushButton" name="boutonVoirMembre">
             <property name="text">
-             <string/>
+             <string>Voir</string>
             </property>
             <property name="icon">
              <iconset>
@@ -774,7 +789,7 @@
           <item>
            <widget class="QPushButton" name="boutonRetirerMembre">
             <property name="text">
-             <string/>
+             <string>Retirer</string>
             </property>
             <property name="icon">
              <iconset>
@@ -986,7 +1001,7 @@
           <item>
            <widget class="QPushButton" name="boutonAjouterCategorie">
             <property name="text">
-             <string/>
+             <string>Créer</string>
             </property>
             <property name="icon">
              <iconset>
@@ -997,7 +1012,7 @@
           <item>
            <widget class="QPushButton" name="boutonEditerCategorie">
             <property name="text">
-             <string/>
+             <string>Éditer</string>
             </property>
             <property name="icon">
              <iconset>
@@ -1008,7 +1023,7 @@
           <item>
            <widget class="QPushButton" name="boutonVoirCategorie">
             <property name="text">
-             <string/>
+             <string>Voir</string>
             </property>
             <property name="icon">
              <iconset>
@@ -1019,7 +1034,7 @@
           <item>
            <widget class="QPushButton" name="boutonRetirerCategorie">
             <property name="text">
-             <string/>
+             <string>Retirer</string>
             </property>
             <property name="icon">
              <iconset>
@@ -1196,17 +1211,6 @@
     </item>
    </layout>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1098</width>
-     <height>27</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>

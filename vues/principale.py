@@ -4,7 +4,7 @@ import controlleurs
 import modeles
 from vues.ui_test import Ui_MainWindow
 from controlleurs.vuecategories import controleurCategories
-from controlleurs.vuedepenses import controleurDepenses
+from controlleurs.vuedepenses import controleurVueDepenses
 
 class fenetrePrincipale(QMainWindow):
 
@@ -15,7 +15,7 @@ class fenetrePrincipale(QMainWindow):
 		self.ui.setupUi(self)
 		self.ui.onglets.tabBar().hide()
 		self.controleurCategories = controleurCategories(self)
-		self.controleurDepenses = controleurDepenses(self)
+		self.controleurDepenses = controleurVueDepenses(self)
 		self.ui.boutonDepenses.clicked.connect(self.depenses)
 		self.ui.boutonCategories.clicked.connect(self.categories)
 		self.ui.boutonMembres.clicked.connect(self.membres)
@@ -29,11 +29,11 @@ class fenetrePrincipale(QMainWindow):
 
 	@pyqtSlot()
 	def depenses(self):
-		self.ui.onglets.setCurrentWidget(self.ui.ongletDepenses)
+		self.controleurDepenses.activer()
 
 	@pyqtSlot()
 	def categories(self):
-		self.ui.onglets.setCurrentWidget(self.ui.ongletCategories)
+		self.controleurCategories.activer()
 
 	@pyqtSlot()
 	def membres(self):
