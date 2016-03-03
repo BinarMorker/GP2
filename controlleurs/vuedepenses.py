@@ -23,21 +23,7 @@ class controleurVueDepenses:
 	@pyqtSlot()
 	def activer(self):
 		self.fenetre.ui.onglets.setCurrentWidget(self.fenetre.ui.ongletDepenses)
-		depenses = controleur_depenses.liste_depenses()
-		self.fenetre.ui.tabDep.setRowCount(len(depenses))
-		self.fenetre.ui.tabDep.setColumnCount(4)
-		i=0
-		for depense in depenses:
-			nom = QTableWidgetItem(depense.nom)
-			nom.setData(Qt.UserRole, depense.id)
-			self.fenetre.ui.tabDep.setItem(i,0,nom)
-			description = QTableWidgetItem(depense.description)
-			self.fenetre.ui.tabDep.setItem(i,1,description)
-			montant = QTableWidgetItem(str(depense.montant))
-			self.fenetre.ui.tabDep.setItem(i,2,montant)
-			categorie = QTableWidgetItem(depense.categorie.nom)
-			self.fenetre.ui.tabDep.setItem(i,3,categorie)
-			i+=1
+		self.peupler_tableau()
 		self.id_selectionne = -1
 
 	@pyqtSlot()
@@ -64,3 +50,21 @@ class controleurVueDepenses:
 		#cellule_id = self.fenetre.ui.tabDep.model().index(rangee, 0)
 		self.id_selectionne = int(self.fenetre.ui.tabDep.item(rangee, 0).data(Qt.UserRole))
 		print(self.id_selectionne)
+
+	@pyqtSlot()
+	def peupler_tableau(self):
+		depenses = controleur_depenses.liste_depenses()
+		self.fenetre.ui.tabDep.setRowCount(len(depenses))
+		self.fenetre.ui.tabDep.setColumnCount(4)
+		i=0
+		for depense in depenses:
+			nom = QTableWidgetItem(depense.nom)
+			nom.setData(Qt.UserRole, depense.id)
+			self.fenetre.ui.tabDep.setItem(i,0,nom)
+			description = QTableWidgetItem(depense.description)
+			self.fenetre.ui.tabDep.setItem(i,1,description)
+			montant = QTableWidgetItem(str(depense.montant))
+			self.fenetre.ui.tabDep.setItem(i,2,montant)
+			categorie = QTableWidgetItem(depense.categorie.nom)
+			self.fenetre.ui.tabDep.setItem(i,3,categorie)
+			i+=1
