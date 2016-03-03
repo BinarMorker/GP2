@@ -9,7 +9,6 @@ class modifierDepense:
 		self.onglet = self.fenetre.ui.editerDepense
 		self.fenetre.ui.editerDepenseBoutonsControle.accepted.connect(self.valider)
 		self.fenetre.ui.editerDepenseBoutonsControle.rejected.connect(self.annuler)
-		print("prout3")
 	
 	def activer(self, categorie):
 		self.fenetre.ui.onglets.setCurrentWidget(self.onglet)

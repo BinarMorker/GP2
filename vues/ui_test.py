@@ -276,7 +276,8 @@ class Ui_MainWindow(object):
         self.creerDepenseSpinBoxMontant.setFocusPolicy(QtCore.Qt.NoFocus)
         self.creerDepenseSpinBoxMontant.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.creerDepenseSpinBoxMontant.setReadOnly(False)
-        self.creerDepenseSpinBoxMontant.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
+        self.creerDepenseSpinBoxMontant.setButtonSymbols(QtWidgets.QAbstractSpinBox.UpDownArrows)
+        self.creerDepenseSpinBoxMontant.setMaximum(9999999999.0)
         self.creerDepenseSpinBoxMontant.setObjectName("creerDepenseSpinBoxMontant")
         self.formLayout.setWidget(3, QtWidgets.QFormLayout.FieldRole, self.creerDepenseSpinBoxMontant)
         self.verticalLayout.addLayout(self.formLayout)
@@ -331,6 +332,7 @@ class Ui_MainWindow(object):
         self.voirDepenseSpinBoxMontant.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.voirDepenseSpinBoxMontant.setReadOnly(True)
         self.voirDepenseSpinBoxMontant.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
+        self.voirDepenseSpinBoxMontant.setMaximum(999999999999999.0)
         self.voirDepenseSpinBoxMontant.setObjectName("voirDepenseSpinBoxMontant")
         self.formLayout_2.setWidget(3, QtWidgets.QFormLayout.FieldRole, self.voirDepenseSpinBoxMontant)
         self.verticalLayout_5.addLayout(self.formLayout_2)
@@ -377,7 +379,8 @@ class Ui_MainWindow(object):
         self.editerDepenseSpinBoxMontant.setMaximumSize(QtCore.QSize(100, 16777215))
         self.editerDepenseSpinBoxMontant.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.editerDepenseSpinBoxMontant.setReadOnly(False)
-        self.editerDepenseSpinBoxMontant.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
+        self.editerDepenseSpinBoxMontant.setButtonSymbols(QtWidgets.QAbstractSpinBox.UpDownArrows)
+        self.editerDepenseSpinBoxMontant.setMaximum(999999999999.0)
         self.editerDepenseSpinBoxMontant.setObjectName("editerDepenseSpinBoxMontant")
         self.formLayout_3.setWidget(3, QtWidgets.QFormLayout.FieldRole, self.editerDepenseSpinBoxMontant)
         self.editerDepenseComboBoxCat = QtWidgets.QComboBox(self.editerDepense)
@@ -635,7 +638,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.onglets.setCurrentIndex(0)
+        self.onglets.setCurrentIndex(6)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):

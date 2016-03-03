@@ -9,7 +9,6 @@ class voirCategorie:
 		self.onglet = self.fenetre.ui.voirCategorie
 		self.fenetre.ui.voirCatBoutonsControle.accepted.connect(self.valider)
 		self.fenetre.ui.voirCatBoutonsControle.rejected.connect(self.annuler)
-		print("prout2")
 	
 	def activer(self, categorie):
 		self.fenetre.ui.voirCatChampNom.setText("derp")

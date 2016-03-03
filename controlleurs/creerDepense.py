@@ -9,7 +9,6 @@ class creerDepense:
 		self.onglet = self.fenetre.ui.ajouterDepense
 		self.fenetre.ui.creerDepBoutonsControle.accepted.connect(self.valider)
 		self.fenetre.ui.creerDepBoutonsControle.rejected.connect(self.annuler)
-		print("prout")
 	
 	def activer(self):
 		self.fenetre.ui.creerDepenseChampNom.setText("derp")

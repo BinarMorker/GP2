@@ -9,7 +9,6 @@ class creerCategorie:
 		self.onglet = self.fenetre.ui.ajouterCategorie
 		self.fenetre.ui.creerCatBoutonsControle.accepted.connect(self.valider)
 		self.fenetre.ui.creerCatBoutonsControle.rejected.connect(self.annuler)
-		print("prout")
 	
 	def activer(self):
 		self.fenetre.ui.creerCatChampNom.setText("derp")

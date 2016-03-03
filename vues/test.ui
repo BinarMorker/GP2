@@ -107,7 +107,7 @@
        <enum>QTabWidget::North</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>6</number>
       </property>
       <widget class="QWidget" name="ongletAPropos">
        <attribute name="title">
@@ -508,7 +508,10 @@
              <bool>false</bool>
             </property>
             <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::NoButtons</enum>
+             <enum>QAbstractSpinBox::UpDownArrows</enum>
+            </property>
+            <property name="maximum">
+             <double>9999999999.000000000000000</double>
             </property>
            </widget>
           </item>
@@ -616,6 +619,9 @@
             <property name="buttonSymbols">
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
+            <property name="maximum">
+             <double>999999999999999.000000000000000</double>
+            </property>
            </widget>
           </item>
          </layout>
@@ -702,7 +708,10 @@
              <bool>false</bool>
             </property>
             <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::NoButtons</enum>
+             <enum>QAbstractSpinBox::UpDownArrows</enum>
+            </property>
+            <property name="maximum">
+             <double>999999999999.000000000000000</double>
             </property>
            </widget>
           </item>

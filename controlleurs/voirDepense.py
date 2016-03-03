@@ -9,7 +9,6 @@ class voirDepense:
 		self.onglet = self.fenetre.ui.voirDepense
 		self.fenetre.ui.voirDepenseBoutonsControle.accepted.connect(self.valider)
 		self.fenetre.ui.voirDepenseBoutonsControle.rejected.connect(self.annuler)
-		print("prout4")
 	
 	def activer(self, categorie):
 		self.fenetre.ui.voirDepenseChampNom.setText("derp")
