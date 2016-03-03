@@ -7,8 +7,8 @@ class creerDepense:
 	def __init__(self, fenetrePrincipale):
 		self.fenetre = fenetrePrincipale
 		self.onglet = self.fenetre.ui.ajouterDepense
-		self.fenetre.ui.creerDepenseBoutonsControle.accepted.connect(self.valider)
-		self.fenetre.ui.creerDepenseBoutonsControle.rejected.connect(self.annuler)
+		self.fenetre.ui.creerDepBoutonsControle.accepted.connect(self.valider)
+		self.fenetre.ui.creerDepBoutonsControle.rejected.connect(self.annuler)
 	
 	def activer(self):
 		self.fenetre.ui.creerDepenseChampNom.setText("")

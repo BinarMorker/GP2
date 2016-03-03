@@ -2,8 +2,9 @@ from PyQt5.QtCore import QObject, pyqtSlot, pyqtSignal
 from controlleurs.creerDepense import creerDepense
 from controlleurs.modifierDepense import modifierDepense
 from controlleurs.voirDepense import voirDepense
+from controlleurs.depenses import DepensesControlleur as controleur_depenses
 
-class controleurDepenses:
+class controleurVueDepenses:
 
 	sauvegarder = pyqtSignal()
 
@@ -12,10 +13,6 @@ class controleurDepenses:
 		self.controleurCreerDepense = creerDepense(self.fenetre)
 		self.controleurModifierDepense = modifierDepense(self.fenetre)
 		self.controleurVoirDepense = voirDepense(self.fenetre)
-		self.ui.boutonAjouterDepense.clicked.connect(self.ajouterDepense)
-		self.ui.boutonEditerDepense.clicked.connect(self.modifierDepense)
-		self.ui.boutonRetirerDepense.clicked.connect(self.supprimerDepense)
-		self.ui.boutonVoirDepense.clicked.connect(self.voirDepense)
 		self.fenetre.ui.boutonAjouterDepense.clicked.connect(self.ajouter)
 		self.fenetre.ui.boutonEditerDepense.clicked.connect(self.modifier)
 		self.fenetre.ui.boutonRetirerDepense.clicked.connect(self.supprimer)
@@ -24,6 +21,9 @@ class controleurDepenses:
 	@pyqtSlot()
 	def activer(self):
 		self.fenetre.ui.onglets.setCurrentWidget(self.fenetre.ui.ongletDepenses)
+		# depenses = controleur_depenses.liste_depenses()
+		# for depense in depenses:
+		# 	print(depense.nom)
 
 	@pyqtSlot()
 	def ajouter(self):
