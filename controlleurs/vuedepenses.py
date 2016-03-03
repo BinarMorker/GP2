@@ -49,7 +49,6 @@ class controleurVueDepenses:
 		rangee = self.fenetre.ui.tabDep.currentIndex().row()
 		#cellule_id = self.fenetre.ui.tabDep.model().index(rangee, 0)
 		self.id_selectionne = int(self.fenetre.ui.tabDep.item(rangee, 0).data(Qt.UserRole))
-		print(self.id_selectionne)
 
 	@pyqtSlot()
 	def peupler_tableau(self):
