@@ -207,6 +207,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.widget)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
         self.tabDep = QtWidgets.QTableWidget(self.widget)
+        self.tabDep.setEditTriggers(QtWidgets.QAbstractItemView.CurrentChanged)
         self.tabDep.setObjectName("tabDep")
         self.tabDep.setColumnCount(0)
         self.tabDep.setRowCount(0)

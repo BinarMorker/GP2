@@ -18,6 +18,9 @@ class controleurCategories:
 		self.fenetre.ui.boutonVoirCategorie.clicked.connect(self.voir)
 
 	@pyqtSlot()
+	def activer(self):
+		self.fenetre.ui.onglets.setCurrentWidget(self.fenetre.ui.ongletCategories)
+	@pyqtSlot()
 	def ajouter(self):
 		self.controleurCreerCategorie.activer()
 
