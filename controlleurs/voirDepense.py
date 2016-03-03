@@ -9,16 +9,16 @@ class voirDepense:
 		self.onglet = self.fenetre.ui.voirDepense
 		self.fenetre.ui.voirDepenseBoutonsControle.accepted.connect(self.valider)
 		self.fenetre.ui.voirDepenseBoutonsControle.rejected.connect(self.annuler)
-		print("prout2")
+
 	
-	def activer(self, depense):
+	def activer(self, categorie):
 		self.fenetre.ui.voirDepenseChampNom.setText("derp")
 		self.fenetre.ui.voirDepenseChampDesc.setText("banana")
 		self.fenetre.ui.onglets.setCurrentWidget(self.onglet)
 
 	@pyqtSlot()
 	def valider(self):
-		print("catégorie visualisée youpi")
+		print("dépense visualisée youpi")
 		self.fenetre.ui.onglets.setCurrentWidget(self.fenetre.ui.ongletDepenses)
 	
 	@pyqtSlot()
@@ -28,7 +28,8 @@ class voirDepense:
 		print(self.getDescription())
 		
 	def getNom(self):
-		return self.fenetre.ui.voirCatChampNom.text()
+		return self.fenetre.ui.voirDepenseChampNom.text()
 	
 	def getDescription(self):
-		return self.fenetre.ui.voirCatChampDesc.document().toPlainText()
+		return self.fenetre.ui.voirDepenseChampDesc.document().toPlainText()
+

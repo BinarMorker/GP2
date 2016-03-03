@@ -35,9 +35,9 @@ class fenetrePrincipale(QMainWindow):
 		self.ui.boutonRetirerMembre.clicked.connect(self.supprimerMembre)
 		self.ui.boutonVoirMembre.clicked.connect(self.voirMembre)
 
-	# @pyqtSlot()
-	# def depenses(self):
-	# 	self.ui.onglets.setCurrentWidget(self.ui.ongletDepenses)
+	@pyqtSlot()
+	def depenses(self):
+		self.ui.onglets.setCurrentWidget(self.ui.ongletDepenses)
 
 	# @pyqtSlot()
 	# def ajouterDepense(self):

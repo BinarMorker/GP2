@@ -16,6 +16,14 @@ class controleurDepenses:
 		self.ui.boutonEditerDepense.clicked.connect(self.modifierDepense)
 		self.ui.boutonRetirerDepense.clicked.connect(self.supprimerDepense)
 		self.ui.boutonVoirDepense.clicked.connect(self.voirDepense)
+		self.fenetre.ui.boutonAjouterDepense.clicked.connect(self.ajouter)
+		self.fenetre.ui.boutonEditerDepense.clicked.connect(self.modifier)
+		self.fenetre.ui.boutonRetirerDepense.clicked.connect(self.supprimer)
+		self.fenetre.ui.boutonVoirDepense.clicked.connect(self.voir)
+
+	@pyqtSlot()
+	def activer(self):
+		self.fenetre.ui.onglets.setCurrentWidget(self.fenetre.ui.ongletDepenses)
 
 	@pyqtSlot()
 	def ajouter(self):
@@ -31,4 +39,4 @@ class controleurDepenses:
 
 	@pyqtSlot()	
 	def supprimer(self, depense):
-		print("supprimer la catégorie yarr")
+		print("supprimer la dépense yarr")
